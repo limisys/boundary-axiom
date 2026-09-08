@@ -15,6 +15,7 @@ sharpness `κ*`, tension `σ*`, and energy conservation along the equations of m
 |------|---------|
 | `BoundaryTheory.lean` | The three propositions, as Lean 4 theorems (imports `Mathlib`) |
 | `VERSION.md` | Version anchor & changelog |
+| `docs/ML_SCENARIO_MAPPING.md` | Hypothesis maps of H0–A5 & T1–T5 onto ML scenarios (falsifiable) |
 
 ## Build
 
