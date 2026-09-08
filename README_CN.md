@@ -13,6 +13,7 @@
 |---|---|
 | `BoundaryTheory.lean` | 三命题的 Lean 4 定理(import `Mathlib`) |
 | `VERSION.md` | 版本锚与变更记录 |
+| `docs/ML_SCENARIO_MAPPING.md` | H0–A5 与 T1–T5 的机器学习场景映射(可证伪假说) |
 
 ## 构建
 
