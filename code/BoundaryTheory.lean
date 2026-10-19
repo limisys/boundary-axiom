@@ -1,3 +1,12 @@
+/-
+  Copyright 2026 Xueqiang Gao (高学强) · ORCID 0009-0008-3821-3454
+  Licensed under the Apache License, Version 2.0 (see LICENSE).
+  Original publication source: caseos.cn/research — https://caseos.cn/research/
+  First public release 2026-10-09; formal publication 2026-10-20.
+  Part of the A-module formalisation (group 1): 1 file / 33 theorems+lemmas / 7 definitions.
+  Attribution header added at publication; proof bodies unchanged.
+-/
+
 import Mathlib
 
 /-!

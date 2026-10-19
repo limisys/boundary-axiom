@@ -52,7 +52,7 @@
   </table>
 
   <h2>下载</h2>
-  <p class="body">形式化文件及其构建元数据：</p>
+  <p class="body">第一组 —— A 模块形式化文件及其构建元数据：</p>
   <ul class="body">
     <li><a href="code/BoundaryTheory.lean">code/BoundaryTheory.lean</a></li>
     <li><a href="code/lakefile.toml">code/lakefile.toml</a></li>
@@ -62,6 +62,12 @@
     <li><a href="LICENSE">LICENSE</a></li>
     <li><a href="NOTICE">NOTICE</a></li>
     <li><a href="CITATION.cff">CITATION.cff</a></li>
+  </ul>
+  <p class="body">第二组 —— B 正典子集：53 文件 / 417 定理+引理 / 77 定义。</p>
+  <ul class="body">
+    <li><a href="code/b/b.tar.gz">code/b/b.tar.gz</a>（53 个 .lean 打包）</li>
+    <li><a href="code/b/FILES.txt">code/b/FILES.txt</a>（文件清单）</li>
+    <li><a href="code/b/">code/b/</a>（53 个 .lean 目录）</li>
   </ul>
 
   <h2>构建</h2>
@@ -76,15 +82,17 @@ lake build</code></pre>
   <table>
     <tr><th>组</th><th>内容</th><th>计数</th><th>状态</th></tr>
     <tr><td>1</td><td>A 模块 BoundaryTheory</td><td>1 文件 / 33 / 7</td><td><strong>已发布</strong></td></tr>
-    <tr><td>2</td><td>论文 B 形式化主干</td><td>53 / 417 / 77（规范值；全量 55 / 434 / 83）</td><td>待发布</td></tr>
+    <tr><td>2</td><td>论文 B 形式化主干（B 正典子集）</td><td>53 / 417 / 77（规范值；全量 55 / 434 / 83）</td><td><strong>已发布</strong></td></tr>
     <tr><td>3</td><td>统一审计体（B + 桥接）</td><td>56 / 467 / 90</td><td>待发布 —— 仅在作者人工复现全部机验结果并书面通知后发布</td></tr>
   </table>
 
   <h2>许可与引用</h2>
   <p class="body">采用 <strong>Apache License, Version 2.0</strong> 许可 —— 见 <a href="LICENSE">LICENSE</a>。版权 2026 高学强 (Xueqiang Gao)；ORCID <a href="https://orcid.org/0009-0008-3821-3454">0009-0008-3821-3454</a>。引用请使用 <a href="CITATION.cff">CITATION.cff</a>。</p>
+  <p class="body"><strong>原始出处：</strong>caseos.cn/research —— <a href="https://caseos.cn/research/">https://caseos.cn/research/</a>。首次公开 2026-10-09；正式发布 2026-10-20。</p>
+  <p class="body">发布时为源码添加了署名头；<strong>证明体保持不变</strong>。B 正典源码中有三处注释称呼已中性化；证明内容未改动。</p>
 
   <h2>边界</h2>
-  <p class="body">此处不发布任何论文。第二、三组不含于本包。备份 <code>.bak</code> 与出处说明不发布。</p>
+  <p class="body">此处不发布任何论文。第二组（B 正典子集）以 Lean 源码形式包含于本包；第三组（统一审计体）不含，且仅在作者人工复现全部机验结果并书面通知后发布。备份 <code>.bak</code> 与出处说明不发布。</p>
 
   <div class="pager">
     <span><a href="https://limisys.github.io/zh.html">← 首页</a></span>

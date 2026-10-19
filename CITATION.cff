@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this code, please cite it as below."
-title: "BoundaryTheory: A-module Lean formalisation (group 1)"
+title: "BoundaryTheory: A-module formalisation (group 1) and B-line canonical subset (group 2)"
 type: software
 version: "2026-10-20"
 date-released: 2026-10-20

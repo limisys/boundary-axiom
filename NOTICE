@@ -1,6 +1,11 @@
-BoundaryTheory — A-module Lean formalisation (group 1)
+BoundaryTheory — A-module formalisation (group 1) and B-line canonical subset (group 2)
 
 Copyright 2026 Xueqiang Gao (高学强)
 ORCID: https://orcid.org/0009-0008-3821-3454
 
+Original publication source: caseos.cn/research — https://caseos.cn/research/
+First public release 2026-10-09; formal publication 2026-10-20.
+
 Licensed under the Apache License, Version 2.0 (see LICENSE).
+Attribution headers were added to the source files at publication; proof bodies are unchanged.
+Three comment appellations in the B-line sources were neutralised; no proof content was changed.
