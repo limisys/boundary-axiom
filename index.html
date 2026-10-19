@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lean layer · machine-checked code</title>
+<meta name="description" content="Group 1 of the Lean layer: the A-module BoundaryTheory formalisation (928 lines, 33 theorems+lemmas, 7 definitions, 0 sorry). The corresponding paper is not published here.">
+<meta name="author" content="Xueqiang Gao (高学强)">
+<link rel="alternate" hreflang="en" href="index.html">
+<link rel="alternate" hreflang="zh-CN" href="zh.html">
+<link rel="stylesheet" href="assets/site.css">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://limisys.github.io/boundary-axiom/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Boundary Theory · Xueqiang Gao">
+  <meta property="og:title" content="Lean layer · machine-checked code">
+  <meta property="og:description" content="Group 1 of the Lean layer: the A-module BoundaryTheory formalisation (928 lines, 33 theorems+lemmas, 7 definitions, 0 sorry). The corresponding paper is not published here.">
+  <meta property="og:url" content="https://limisys.github.io/boundary-axiom/">
+  <meta name="twitter:card" content="summary">
+  <meta property="og:image" content="https://limisys.github.io/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Boundary Theory · Xueqiang Gao">
+  <meta name="twitter:image" content="https://limisys.github.io/assets/og.png">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#10161f">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="lang"><a href="zh.html">中文</a></div>
+  <div class="brand">Boundary Theory · Xueqiang Gao</div>
+  <div class="crumb"><a href="https://limisys.github.io/">Home</a> / <strong>Lean layer</strong></div>
+
+  <h1>Lean layer · machine-checked code</h1>
+  <div class="sub">Group 1 · A-module BoundaryTheory — the formalisation stage of a reviewed paper; the paper itself is not published here.</div>
+
+  <hr>
+
+  <h2>What is published</h2>
+  <p class="body">This release contains <strong>group 1 only</strong>: a single Lean file, <code>BoundaryTheory.lean</code>.</p>
+  <table>
+    <tr><th>Item</th><th>Value</th></tr>
+    <tr><td>Files</td><td>1</td></tr>
+    <tr><td>Theorems + lemmas</td><td>33</td></tr>
+    <tr><td>Definitions</td><td>7</td></tr>
+    <tr><td>Lines</td><td>928</td></tr>
+    <tr><td>sorry</td><td>0 (fully machine-checked)</td></tr>
+    <tr><td>Toolchain</td><td>Lean 4.33.0 + Mathlib v4.33.0</td></tr>
+  </table>
+
+  <h2>Download</h2>
+  <p class="body">The formalisation and its build metadata:</p>
+  <ul class="body">
+    <li><a href="code/BoundaryTheory.lean">code/BoundaryTheory.lean</a></li>
+    <li><a href="code/lakefile.toml">code/lakefile.toml</a></li>
+    <li><a href="code/lake-manifest.json">code/lake-manifest.json</a></li>
+    <li><a href="code/lean-toolchain">code/lean-toolchain</a></li>
+    <li><a href="SHA256SUMS">SHA256SUMS</a></li>
+    <li><a href="LICENSE">LICENSE</a></li>
+    <li><a href="NOTICE">NOTICE</a></li>
+    <li><a href="CITATION.cff">CITATION.cff</a></li>
+  </ul>
+
+  <h2>Build</h2>
+  <p class="body">With Lean 4.33.0 and the corresponding Mathlib installed:</p>
+  <pre class="body"><code>cd code
+lake build</code></pre>
+  <p class="body">Verify integrity after download:</p>
+  <pre class="body"><code>sha256sum -c SHA256SUMS</code></pre>
+
+  <h2>The three groups</h2>
+  <p class="body">The Lean layer is planned in three groups. Only group 1 is published here.</p>
+  <table>
+    <tr><th>Group</th><th>Content</th><th>Counts</th><th>Status</th></tr>
+    <tr><td>1</td><td>A module BoundaryTheory</td><td>1 file / 33 / 7</td><td><strong>published</strong></td></tr>
+    <tr><td>2</td><td>Paper B formal spine</td><td>53 / 417 / 77 (canonical; full line 55 / 434 / 83)</td><td>pending</td></tr>
+    <tr><td>3</td><td>Unified audit body (B + bridge)</td><td>56 / 467 / 90</td><td>pending — to be published only after the author's manual reproduction of all machine-checked results and written notice</td></tr>
+  </table>
+
+  <h2>License &amp; citation</h2>
+  <p class="body">Licensed under the <strong>Apache License, Version 2.0</strong> — see <a href="LICENSE">LICENSE</a>. Copyright 2026 Xueqiang Gao (高学强); ORCID <a href="https://orcid.org/0009-0008-3821-3454">0009-0008-3821-3454</a>. Please cite using <a href="CITATION.cff">CITATION.cff</a>.</p>
+
+  <h2>Boundary</h2>
+  <p class="body">No paper is published here. Groups 2 and 3 are not included in this package. The <code>.bak</code> backup and the provenance notes are not published.</p>
+
+  <div class="pager">
+    <span><a href="https://limisys.github.io/">← Home</a></span>
+    <span class="nx"><a href="zh.html">中文 →</a></span>
+  </div>
+
+  <footer>
+    © 2026 Xueqiang Gao · Text CC BY 4.0 · Code Apache-2.0<br>
+    <a href="https://limisys.github.io/">Return to main site</a>
+  </footer>
+
+</div>
+</body>
+</html>
