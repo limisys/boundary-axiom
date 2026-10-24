@@ -33,17 +33,18 @@ The released bytes are in the repository, not only in a build directory:
 | Anchor | Evidence | Time | Status |
 | --- | --- | --- | --- |
 | RFC 3161 TSA (freetsa.org) | `GENESIS.json.tsr` (request: `.tsq`) | **2026-10-24 03:48:36 GMT**, serial `0x0965B6C4` | Granted, signature verified against `tsa-cacert.pem` |
-| OpenTimestamps (Bitcoin) — genesis record | `GENESIS.json.ots` | **Bitcoin block 972874**, merkle root `f22ea8a5f3bf05d2d8a064c1d5e33f38523361910c97dcf3695a2b0e6e9bb249`, block time 2026-10-24 04:12:06 UTC | **Complete** (`BitcoinBlockHeaderAttestation(972874)`) |
+| OpenTimestamps (Bitcoin) — genesis record, anchor 1 | `GENESIS.json.ots` | **Bitcoin block 972873**, merkle root `90625906d9233b07692b176a16b5d11b1009eac87b2978f793dba69be8e83ec5`, block time 2026-10-24 04:05:48 UTC | **Complete** (`BitcoinBlockHeaderAttestation(972873)`) |
+| OpenTimestamps (Bitcoin) — genesis record, anchor 2 | `GENESIS.json.ots` | **Bitcoin block 972874**, merkle root `f22ea8a5f3bf05d2d8a064c1d5e33f38523361910c97dcf3695a2b0e6e9bb249`, block time 2026-10-24 04:12:06 UTC | **Complete** (`BitcoinBlockHeaderAttestation(972874)`) |
 | OpenTimestamps (Bitcoin) — package | `release/boundary-axiom-f01cf6f-v1.1.0.tar.gz.ots` | **Bitcoin block 972871**, merkle root `96023e29396199d7f998b73198fe082536fa2b29b84bd1f8307762231f94e59d`, block time 2026-10-24 03:42:03 UTC | **Complete** (`BitcoinBlockHeaderAttestation(972871)`) |
 
-Both Bitcoin merkle roots were independently re-read from a public block explorer; the block times frame the packaging run (03:42:03 UTC, package) and the genesis record (03:48:06 UTC create / 03:48:36 UTC TSA / 04:12:06 UTC anchor).
+All three Bitcoin merkle roots were independently re-read from a public block explorer. The genesis record carries two anchors in different blocks because two independent calendars aggregated it; the earlier block (972873) is the more conservative lower bound, and the later one (972874) is redundant rather than conflicting. The block times frame the packaging run (03:42:03 UTC) and the genesis record (03:48:06 UTC create / 03:48:36 UTC TSA / 04:05:48 and 04:12:06 UTC anchors).
 
 ## Two manifests, two scopes
 
 | Manifest | Entries | Covers | Use it from |
 | --- | --- | --- | --- |
 | `MANIFEST.public.sha256` | 183 | the packaged tree at `f01cf6f`, **frozen**; SHA-256 `1fb0301132e66edfd20d0286691db0f78d2a83e9029ee5fd35cf77fdb45fa59c` (the value bound in `GENESIS.json`) | inside the extracted package directory only |
-| `MANIFEST.attestation.sha256` | 196 | the current `main` worktree, including `genesis/`, `ots/`, `release/` and page-metadata updates | repository root |
+| `MANIFEST.attestation.sha256` | 195 | the current `main` worktree, including `genesis/`, `ots/`, `release/` and page-metadata updates | repository root |
 
 Why they are separate: commits after `f01cf6f` (i) added attestation files, and (ii) updated page metadata in `site/evidence.html`. Folding those into `MANIFEST.public.sha256` would change its SHA-256 away from the value anchored in `GENESIS.json`, breaking the self-consistency of the record — which is exactly what happened between `f01cf6f` and `f89313e`. The packaged manifest is therefore restored verbatim to its `f01cf6f` bytes, and every later file is registered in the attestation manifest instead.
 
