@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content=width=device-width, initial-scale=1>
+<title>One object, not two — Boundary / Axiom</title>
+<meta name=description content=An explorable explanation of the boundary–report joint fixed point: a finite-state demo of the consistency gate that refuses to let a boundary be settled without its report.>
+<meta property=og:title content=One object, not two — Boundary / Axiom>
+<meta property=og:description content=Break the report family in your browser and watch the gate refuse the commit.>
+<meta property=og:type content=article>
+<style>
+:root{--bg:#0a0c0f;--bg-soft:#0f1216;--ink:#e4dfd5;--muted:#8f8b82;--faint:#605d57;--line:#262b31;--line-strong:#3a4048;--accent:#c9a46a;--accent-dim:#8f7348;--ok:#6f9e7a;--warn:#c9a46a;--bad:#b8645c;--code:#11151a;--serif:Iowan Old Style,Palatino Linotype,Book Antiqua,Georgia,Noto Serif CJK SC,serif;--sans:Inter,Helvetica Neue,Noto Sans CJK SC,Arial,sans-serif;--mono:SFMono-Regular,JetBrains Mono,Consolas,Liberation Mono,monospace;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.72;-webkit-font-smoothing:antialiased;}
+::selection{background:var(--accent);color:#0a0c0f;}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(201,164,106,.28);}
+a:hover{border-bottom-color:var(--accent);}
+.sitebar{position:sticky;top:0;z-index:20;background:rgba(10,12,15,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(10px);}
+.sitebar-inner{max-width:1100px;margin:0 auto;padding:14px 26px;display:flex;align-items:baseline;gap:22px;flex-wrap:wrap;}
+.brand{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);border:0;white-space:nowrap;}
+.brand span{color:var(--accent);}
+.sitebar nav{display:flex;gap:18px;margin-left:auto;flex-wrap:wrap;}
+.sitebar nav a{font-family:var(--sans);font-size:12px;letter-spacing:.04em;color:var(--muted);border:0;}
+.sitebar nav a:hover,.sitebar nav a[aria-current]{color:var(--ink);}
+.wrap{max-width:1100px;margin:0 auto;padding:0 26px;}
+main{padding:0 0 110px;}
+.hero{padding:80px 0 46px;border-bottom:1px solid var(--line);}
+.kicker{font-family:var(--mono);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 22px;}
+h1{font-size:clamp(38px,6vw,62px);line-height:1.06;font-weight:500;margin:0 0 26px;letter-spacing:-.02em;}
+h1 em{font-style:italic;color:var(--accent);}
+.lede{font-size:20px;color:var(--muted);max-width:62ch;margin:0;}
+h2{font-size:15px;font-family:var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:500;margin:64px 0 18px;}
+p{margin:0 0 18px;}
+.small{font-size:15px;color:var(--muted);}
+.mono{font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;}
+.board{display:grid;grid-template-columns:minmax(340px,1fr) minmax(380px,1.05fr);gap:34px;align-items:start;margin-top:34px;}
+@media(max-width:900px){.board{grid-template-columns:1fr;}}
+.panel{background:var(--bg-soft);border:1px solid var(--line);border-radius:3px;}
+.panel-head{display:flex;justify-content:space-between;align-items:baseline;padding:12px 16px;border-bottom:1px solid var(--line);}
+.panel-head .t{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);}
+.panel-body{padding:16px;}
+svg.graph{display:block;width:100%;height:auto;touch-action:manipulation;}
+.edge-hit{stroke:transparent;stroke-width:16;cursor:pointer;}
+.edge-line{stroke:var(--line-strong);stroke-width:1.6;fill:none;transition:stroke .18s,stroke-width .18s;}
+.edge-group:hover .edge-line{stroke:var(--accent-dim);stroke-width:2.4;}
+.node{cursor:pointer;}
+.node circle.body{fill:#12161b;stroke:var(--line-strong);stroke-width:1.6;transition:fill .22s,stroke .22s;}
+.node text{font-family:var(--mono);font-size:13px;fill:var(--faint);text-anchor:middle;dominant-baseline:central;pointer-events:none;transition:fill .22s;}
+.node.in-s circle.body{fill:rgba(201,164,106,.16);stroke:var(--accent);stroke-width:2.2;}
+.node.in-s text{fill:var(--accent);}
+.node.in-clo circle.body{fill:none;stroke:var(--accent-dim);stroke-dasharray:3 3;}
+.node.in-clo text{fill:var(--muted);}
+.node.in-rep circle.ring{fill:none;stroke:var(--ok);stroke-width:1.4;}
+.legend{display:flex;gap:18px;flex-wrap:wrap;padding:10px 16px;border-top:1px solid var(--line);}
+.legend span{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--faint);display:inline-flex;align-items:center;gap:7px;}
+.dot{width:10px;height:10px;border-radius:50%;border:1.6px solid var(--line-strong);display:inline-block;}
+.dot.s{background:rgba(201,164,106,.28);border-color:var(--accent);}
+.dot.c{border-color:var(--accent-dim);border-style:dashed;}
+.dot.r{border-color:var(--ok);border-width:1.4px;}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+button{font-family:var(--sans);font-size:12px;letter-spacing:.04em;background:transparent;color:var(--muted);border:1px solid var(--line-strong);padding:7px 12px;border-radius:2px;cursor:pointer;transition:all .16s;}
+button:hover:not(:disabled){color:var(--ink);border-color:var(--accent-dim);}
+button:disabled{opacity:.35;cursor:not-allowed;}
+button.primary{border-color:var(--accent-dim);color:var(--accent);}
+button.primary:hover:not(:disabled){background:rgba(201,164,106,.1);border-color:var(--accent);}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin:8px 0 0;}
+.chip{font-family:var(--mono);font-size:11.5px;padding:3px 8px;border-radius:2px;border:1px solid var(--line-strong);color:var(--muted);cursor:pointer;background:transparent;transition:all .15s;}
+.chip:hover{border-color:var(--accent-dim);color:var(--ink);}
+.chip.off{opacity:.35;text-decoration:line-through;}
+.chip.added{color:var(--bad);border-color:var(--bad);}
+table.gate{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:12px;}
+table.gate th{text-align:left;font-weight:400;color:var(--faint);font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:6px 8px;border-bottom:1px solid var(--line);}
+table.gate td{padding:7px 8px;border-bottom:1px solid rgba(38,43,49,.55);vertical-align:top;color:var(--muted);}
+table.gate td.code{color:var(--ink);white-space:nowrap;}
+table.gate td.note{font-family:var(--sans);font-size:11.5px;line-height:1.5;color:var(--faint);}
+.st{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;white-space:nowrap;}
+.st.pass{color:var(--ok);}
+.st.review{color:var(--warn);}
+.st.reject{color:var(--bad);}
+.st.na{color:var(--faint);}
+tr.row-reject td{background:rgba(184,100,92,.06);}
+tr.row-review td{background:rgba(201,164,106,.05);}
+.verdict{display:flex;align-items:center;gap:14px;padding:14px 16px;border-top:1px solid var(--line);}
+.verdict .badge{font-family:var(--mono);font-size:11px;letter-spacing:.18em;padding:6px 12px;border:1px solid;border-radius:2px;}
+.verdict.accept .badge{color:var(--ok);border-color:rgba(111,158,122,.5);}
+.verdict.review .badge{color:var(--warn);border-color:rgba(201,164,106,.5);}
+.verdict.reject .badge{color:var(--bad);border-color:rgba(184,100,92,.5);}
+.verdict .why{font-size:14px;color:var(--muted);line-height:1.5;}
+pre.bundle{margin:0;font-family:var(--mono);font-size:11.5px;line-height:1.65;color:var(--muted);background:var(--code);padding:14px 16px;border-top:1px solid var(--line);overflow-x:auto;}
+pre.bundle .k{color:var(--faint);}
+pre.bundle .v{color:var(--ink);}
+pre.bundle .bad{color:var(--bad);}
+.chain{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:14px;min-height:46px;}
+.block{font-family:var(--mono);font-size:10px;line-height:1.35;color:var(--muted);border:1px solid var(--line-strong);border-radius:2px;padding:6px 8px;background:var(--bg-soft);animation:drop .35s ease;}
+.block .h{display:block;color:var(--accent);letter-spacing:.06em;}
+.block .m{display:block;color:var(--faint);}
+.arrow{font-family:var(--mono);font-size:11px;color:var(--faint);padding:0 2px;}
+@keyframes drop{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:none;}}
+.tries{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:18px;}
+.try{border:1px solid var(--line);border-radius:3px;padding:16px;background:var(--bg-soft);transition:border-color .18s;}
+.try:hover{border-color:var(--line-strong);}
+.try h3{font-family:var(--sans);font-size:13px;margin:0 0 8px;color:var(--ink);font-weight:500;}
+.try p{font-size:14px;color:var(--muted);margin:0 0 14px;line-height:1.6;}
+.try .res{font-family:var(--mono);font-size:11px;margin-top:12px;color:var(--faint);min-height:16px;}
+.note-block{border-left:2px solid var(--line-strong);padding:4px 0 4px 18px;margin:28px 0;color:var(--muted);font-size:16px;}
+.footer{border-top:1px solid var(--line);margin-top:80px;padding-top:26px;font-size:14px;color:var(--faint);}
+.footer a{color:var(--muted);}
+.eq{font-family:var(--mono);font-size:12.5px;color:var(--ink);background:var(--code);border:1px solid var(--line);border-radius:2px;padding:12px 14px;overflow-x:auto;margin:14px 0;}
+.eq .c{color:var(--faint);}
+</style>
+</head>
+<body>
+
+<header class="sitebar">
+  <div class="sitebar-inner">
+    <a class="brand" href="index.html">Boundary <span>/</span> Axiom</a>
+    <nav>
+      <a href="index.html">Entry</a>
+      <a href="technical.html">Technical</a>
+      <a href="demo.html" aria-current="page">Demo</a>
+      <a href="evidence.html">Evidence</a>
+      <a href="open-bridge.html">Open bridge</a>
+      <a href="https://github.com/limisys/boundary-axiom">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="hero">
+  <p class="kicker">Explorable · finite state · six elements</p>
+  <h1>One object,<br><em>not two.</em></h1>
+  <p class="lede">A boundary can be settled while its report is stale. That intermediate
+  state is the one this gate refuses to admit. Move the state below, then break the
+  report family on purpose — the gate will tell you exactly which axiom you broke.</p>
+</section>
+
+<section>
+  <h2>The machine</h2>
+  <p class="small">A finite universe Ω = {a, b, c, d, e, f}. Click a node to put it in the
+  state <span class="mono">S</span>. Click an edge to switch it on or off, which changes the
+  closure operator <span class="mono">C</span>. Everything else — the report family
+  <span class="mono">R</span>, the pointwise comparison <span class="mono">c_R = C</span>,
+  the gate verdict — is computed, not narrated.</p>
+
+  <div class="board">
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="t">State space &amp; operator</span>
+        <span class="mono" id="opVersion">v1</span>
+      </div>
+      <svg class="graph" viewBox="0 0 400 380" id="graph" role="img" aria-label="Finite state graph"></svg>
+      <div class="legend">
+        <span><i class="dot s"></i>S</span>
+        <span><i class="dot c"></i>C(S) \ S</span>
+        <span><i class="dot r"></i>report</span>
+      </div>
+      <div class="panel-body" style="border-top:1px solid var(--line)">
+        <div class="mono" style="color:var(--faint);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase">Report family R</div>
+        <div class="chips" id="rChips"></div>
+        <div class="controls">
+          <button id="btnReset">Reset machine</button>
+          <button id="btnPreset">Preset: fragmented</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <span class="t">Consistency gate</span>
+        <span class="mono" id="headLabel">head · 0000000</span>
+      </div>
+      <div class="panel-body" style="padding:0">
+        <table class="gate">
+          <thead>
+            <tr><th>Code</th><th>Check</th><th>Status</th></tr>
+          </thead>
+          <tbody id="gateBody"></tbody>
+        </table>
+      </div>
+      <div class="verdict accept" id="verdict">
+        <span class="badge" id="verdictBadge">ACCEPT</span>
+        <span class="why" id="verdictWhy"></span>
+      </div>
+      <pre class="bundle" id="bundleView"></pre>
+      <div class="panel-body" style="border-top:1px solid var(--line)">
+        <div class="controls" style="margin:0">
+          <button class="primary" id="btnCommit">Commit bundle</button>
+          <button id="btnSplice">Advance C, keep old R</button>
+        </div>
+        <div class="chain" id="chain"><span class="mono" style="color:var(--faint)">genesis · nothing committed</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>Break it yourself</h2>
+  <p class="small">Each button performs one specific violation. The gate's answer is not a
+  label attached in advance — it is recomputed from R1–R7 on the current state.</p>
+
+  <div class="tries">
+    <div class="try">
+      <h3>1 · Decouple the report</h3>
+      <p>Commit a report that is one element short of the boundary: the boundary is settled,
+      the report of it is not.</p>
+      <button data-act="decouple">Decouple report</button>
+      <div class="res"></div>
+    </div>
+    <div class="try">
+      <h3>2 · Report an open set</h3>
+      <p>Let the system report a set that is not a fixed point of <span class="mono">C</span>:
+      it claims a boundary it does not maintain.</p>
+      <button data-act="open">Report open set</button>
+      <div class="res"></div>
+    </div>
+    <div class="try">
+      <h3>3 · Drop a fixed point</h3>
+      <p>A report family missing one of its own fixed points can stay intersection-closed.
+      R2 passes, R3 fails. That is why the identity is pointwise.</p>
+      <button data-act="drop">Drop a fixed point</button>
+      <div class="res"></div>
+    </div>
+    <div class="try">
+      <h3>4 · Inject a non-closed set</h3>
+      <p>Add {a} to a family built on {a,b,c}. The family now contains something the operator
+      can never return.</p>
+      <button data-act="inject">Inject {a}</button>
+      <div class="res"></div>
+    </div>
+    <div class="try">
+      <h3>5 · Splice two versions</h3>
+      <p>Advance the operator, keep the old report family. Boundary moved, report family
+      did not.</p>
+      <button data-act="splice">Splice versions</button>
+      <div class="res"></div>
+    </div>
+    <div class="try">
+      <h3>6 · Use a non-idempotent operator</h3>
+      <p>One-step expansion is extensive but not idempotent. The first axiom fails before
+      anything else can be asked.</p>
+      <button data-act="nonidem">One-step operator</button>
+      <div class="res"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Why the intermediate state is illegal</h2>
+  <p>The protocol does not ask callers to be careful. It removes the state. A bundle carries
+  <span class="mono">C, R, report, evidence, certificate, version, parent</span> as one
+  immutable object, and a single <span class="mono">commit(bundle)</span> entry point is the
+  only way in. There is no call that writes a closure without its report, and none that
+  writes a report without its closure.</p>
+
+  <div class="eq">
+    commit(bundle):<br>
+    &nbsp;&nbsp;verdict = gate(bundle, head)<br>
+    &nbsp;&nbsp;<span class="c">if</span> verdict != ACCEPT: <span class="c">raise</span> CommitRejected<br>
+    &nbsp;&nbsp;<span class="c">transaction:</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;check parent == current head<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;write bundle<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;set head to new hash<br>
+    &nbsp;&nbsp;<span class="c"># boundary, report, evidence, version land together</span>
+  </div>
+
+  <div class="note-block">
+    The claim is conditional and narrow. On Moore report families the closure operator and
+    the report family determine each other; outside that class there is a machine-checked
+    counterexample. This page does not show that a deployed agent cannot bypass the gate,
+    that the attribution layer has been bridged to the closure layer, or that any real system
+    has a Moore family. It shows a finite-state reference implementation of the check.
+  </div>
+</section>
+
+<div class="footer">
+  <p>Source: <a href="https://github.com/limisys/boundary-axiom">github.com/limisys/boundary-axiom</a>
+  · protocol note: <span class="mono">architecture/PROTOCOL.md</span>
+  · reference implementation: <span class="mono">architecture/gate_reference.py</span>
+  · formal core: <span class="mono">report-core/</span></p>
+  <p class="mono" style="color:var(--faint)">Hashes on this page are illustrative, not cryptographic.</p>
+</div>
+
+</main>
+<script>
+"use strict";
+/* ---------------------------------------------------------------- *
+ * Finite-state boundary-report gate.
+ * Omega = 6 elements, subsets as bitmasks. C = reachability closure.
+ * R must be the fixed-point family of C (a Moore family).
+ * R1-R7 follow architecture/PROTOCOL.md; R5/R6 are simplified here.
+ * ---------------------------------------------------------------- */
+
+var N = 6;
+var FULL = (1 << N) - 1;
+var NAME = ["a", "b", "c", "d", "e", "f"];
+var POS = [[200,52],[308,120],[308,250],[200,318],[92,250],[92,120]];
+var EDGES_DEFAULT = [[0,1],[1,2],[2,0],[3,0],[4,5]];
+var EDGES_FRAG = [[0,1],[1,2],[2,0],[3,0],[4,5],[5,4]];
+
+var st = {
+  edges: EDGES_DEFAULT.map(function (e) { return e.slice(); }),
+  S: 1,
+  removed: [],
+  injected: [],
+  reportMode: "closure",
+  nonIdem: false,
+  version: 1,
+  head: "0000000",
+  chain: [],
+  snapR: null,
+  splice: false
+};
+
+/* ---------- set helpers ---------- */
+function pop(m) { var c = 0; while (m) { m &= m - 1; c++; } return c; }
+function list(m) { var o = [], i; for (i = 0; i < N; i++) if (m & (1 << i)) o.push(NAME[i]); return o; }
+function fmt(m) { var l = list(m); return l.length ? "{" + l.join(",") + "}" : "∅"; }
+function subsets() { var o = [], m; for (m = 0; m <= FULL; m++) o.push(m); return o; }
+
+/* ---------- operator ---------- */
+function closure(m) {
+  var out = m, changed = true, i, e;
+  if (st.nonIdem) {
+    for (i = 0; i < st.edges.length; i++) {
+      e = st.edges[i];
+      if (out & (1 << e[0])) out |= (1 << e[1]);
+    }
+    return out;
+  }
+  while (changed) {
+    changed = false;
+    for (i = 0; i < st.edges.length; i++) {
+      e = st.edges[i];
+      if ((out & (1 << e[0])) && !(out & (1 << e[1]))) { out |= (1 << e[1]); changed = true; }
+    }
+  }
+  return out;
+}
+
+function fixedPoints() {
+  var out = [], m;
+  for (m = 0; m <= FULL; m++) if (closure(m) === m) out.push(m);
+  return out;
+}
+
+/* family actually in force: fixed points minus removals, plus injections */
+function effectiveR() {
+  if (st.overrideR) return st.overrideR.slice();
+  var fix = fixedPoints(), out = [], i;
+  for (i = 0; i < fix.length; i++) {
+    if (st.removed.indexOf(fix[i]) === -1) out.push(fix[i]);
+  }
+  for (i = 0; i < st.injected.length; i++) {
+    if (out.indexOf(st.injected[i]) === -1) out.push(st.injected[i]);
+  }
+  out.sort(function (a, b) { return a - b; });
+  return out;
+}
+
+/* c_R(S) = intersection of all members of R that contain S */
+function cR(m, R) {
+  var acc = FULL, i, T;
+  for (i = 0; i < R.length; i++) {
+    T = R[i];
+    if ((T & m) === m) acc &= T;
+  }
+  return acc;
+}
+
+function reportMask() {
+  var c = closure(st.S), m, i;
+  if (st.reportMode === "open") return st.S;
+  if (st.reportMode === "decoupled") {
+    m = c;
+    for (i = 0; i < N; i++) if (m & (1 << i)) { m &= ~(1 << i); break; }
+    return m;
+  }
+  return c;
+}
+
+/* ---------- R1: is C a closure operator? ---------- */
+function checkOperator() {
+  var all = subsets(), i, j, m, n;
+  for (i = 0; i < all.length; i++) {
+    m = all[i];
+    if ((closure(m) & m) !== m) return "not extensive at " + fmt(m);
+  }
+  for (i = 0; i < all.length; i++) {
+    m = all[i];
+    for (j = 0; j < all.length; j++) {
+      n = all[j];
+      if ((m & n) === m && (closure(m) & closure(n)) !== closure(m)) {
+        return "not monotone at " + fmt(m) + " ⊆ " + fmt(n);
+      }
+    }
+  }
+  for (i = 0; i < all.length; i++) {
+    m = all[i];
+    if (closure(closure(m)) !== closure(m)) return "not idempotent at " + fmt(m);
+  }
+  return null;
+}
+
+/* ---------- R2: is R intersection-closed (a Moore family)? ---------- */
+function checkMoore(R) {
+  var i, j, A, B, C;
+  if (R.indexOf(FULL) === -1) return "Ω missing from R";
+  for (i = 0; i < R.length; i++) {
+    for (j = 0; j < R.length; j++) {
+      A = R[i]; B = R[j];
+      C = A & B;
+      if (R.indexOf(C) === -1) return fmt(A) + " ∩ " + fmt(B) + " = " + fmt(C) + " missing";
+    }
+  }
+  return null;
+}
+
+/* ---------- R3: c_R == C pointwise? ---------- */
+function checkIdentity(R) {
+  var all = subsets(), i, m;
+  for (i = 0; i < all.length; i++) {
+    m = all[i];
+    if (cR(m, R) !== closure(m)) {
+      return "at " + fmt(m) + ": c_R = " + fmt(cR(m, R)) + " but C = " + fmt(closure(m));
+    }
+  }
+  return null;
+}
+
+/* ---------- gate ---------- */
+function gate() {
+  var R = effectiveR();
+  var rep = reportMask();
+  var rows = [], verdict = "ACCEPT", why = "";
+
+  var opErr = checkOperator();
+  rows.push({ code: "R1", label: "C is a closure operator", status: opErr ? "REJECT" : "PASS",
+    note: opErr ? opErr : "extensive, monotone, idempotent on all 64 subsets" });
+
+  var mooreErr = checkMoore(R);
+  rows.push({ code: "R2", label: "R is a Moore family", status: mooreErr ? "REVIEW" : "PASS",
+    note: mooreErr ? mooreErr + " — the boundary/report identity cannot be claimed until R is repaired" : pop(R.length) + " members, closed under intersection" });
+
+  var idErr = checkIdentity(R);
+  rows.push({ code: "R3", label: "c_R = C pointwise", status: idErr ? "REJECT" : "PASS",
+    note: idErr ? idErr : "the family is exactly the fixed-point family of C" });
+
+  var inR = R.indexOf(rep) !== -1;
+  rows.push({ code: "R4", label: "report ∈ R", status: inR ? "PASS" : "REJECT",
+    note: inR ? "report = " + fmt(rep) : "report = " + fmt(rep) + " is not a member of R" });
+
+  rows.push({ code: "R5", label: "version, evidence, certificate agree", status: "PASS",
+    note: "simplified here: evidence = S, certificate binds (S, C(S), |R|) to version " + st.version });
+
+  rows.push({ code: "R6", label: "exactly one candidate", status: "NA",
+    note: "not exercised: this page supplies a single bundle" });
+
+  rows.push({ code: "R7", label: "parent = committed head", status: "PASS",
+    note: "parent = " + st.head });
+
+  var i, r;
+  for (i = 0; i < rows.length; i++) {
+    r = rows[i];
+    if (r.status === "REJECT") { verdict = "REJECT"; }
+    else if (r.status === "REVIEW" && verdict !== "REJECT") { verdict = "REVIEW"; }
+  }
+  if (verdict === "REJECT") {
+    for (i = 0; i < rows.length; i++) if (rows[i].status === "REJECT") { why = rows[i].label + " — " + rows[i].note; break; }
+  } else if (verdict === "REVIEW") {
+    for (i = 0; i < rows.length; i++) if (rows[i].status === "REVIEW") { why = rows[i].note; break; }
+  } else {
+    why = "the bundle lands as one object: " + fmt(closure(st.S)) + " and its report, together, at version " + st.version;
+  }
+  return { rows: rows, verdict: verdict, why: why, R: R, report: rep };
+}
+
+/* ---------------------------------------------------------------- *
+ * Rendering
+ * ---------------------------------------------------------------- */
+var SVGNS = "http://www.w3.org/2000/svg";
+var svgEl = document.getElementById("graph");
+
+function edgeExists(u, v) {
+  var i;
+  for (i = 0; i < st.edges.length; i++) if (st.edges[i][0] === u && st.edges[i][1] === v) return true;
+  return false;
+}
+
+function mk(tag, attrs) {
+  var el = document.createElementNS(SVGNS, tag), k;
+  for (k in attrs) if (attrs.hasOwnProperty(k)) el.setAttribute(k, attrs[k]);
+  return el;
+}
+
+function renderGraph(report, inClosure) {
+  while (svgEl.firstChild) svgEl.removeChild(svgEl.firstChild);
+
+  var defs = mk("defs", {});
+  var marker = mk("marker", { id: "ar", viewBox: "0 0 10 10", refX: "9", refY: "5",
+    markerWidth: "6", markerHeight: "6", orient: "auto-start-reverse" });
+  marker.appendChild(mk("path", { d: "M 0 0 L 10 5 L 0 10 z", fill: "#3a4048" }));
+  defs.appendChild(marker);
+  svgEl.appendChild(defs);
+
+  var i, u, v, p1, p2, dx, dy, len, ux, uy, x1, y1, x2, y2, bidir, mx, my;
+
+  for (i = 0; i < st.edges.length; i++) {
+    u = st.edges[i][0]; v = st.edges[i][1];
+    p1 = POS[u]; p2 = POS[v];
+    dx = p2[0] - p1[0]; dy = p2[1] - p1[1];
+    len = Math.sqrt(dx * dx + dy * dy) || 1;
+    ux = dx / len; uy = dy / len;
+    x1 = p1[0] + ux * 21; y1 = p1[1] + uy * 21;
+    x2 = p2[0] - ux * 25; y2 = p2[1] - uy * 25;
+
+    var g = mk("g", { "class": "edge-group" });
+    var hit = mk("line", { "class": "edge-hit", x1: x1, y1: y1, x2: x2, y2: y2 });
+    var line;
+
+    bidir = edgeExists(v, u);
+    if (bidir) {
+      mx = (x1 + x2) / 2 - uy * 12;
+      my = (y1 + y2) / 2 + ux * 12;
+      line = mk("path", { "class": "edge-line", d: "M " + x1 + " " + y1 + " Q " + mx + " " + my + " " + x2 + " " + y2,
+        "marker-end": "url(#ar)" });
+    } else {
+      line = mk("line", { "class": "edge-line", x1: x1, y1: y1, x2: x2, y2: y2, "marker-end": "url(#ar)" });
+    }
+
+    var eu = u, ev = v;
+    hit.addEventListener("click", function (a, b) {
+      return function () { toggleEdge(a, b); };
+    }(eu, ev));
+
+    g.appendChild(hit);
+    g.appendChild(line);
+    svgEl.appendChild(g);
+  }
+
+  var clo = inClosure, rep = report;
+  for (i = 0; i < N; i++) {
+    var g2 = mk("g", { "class": "node" });
+    var cls = "node";
+    if (clo & (1 << i)) cls += (st.S & (1 << i)) ? " in-s" : " in-clo";
+    if (rep & (1 << i)) cls += " in-rep";
+    g2.setAttribute("class", cls);
+
+    if (rep & (1 << i)) g2.appendChild(mk("circle", { "class": "ring", cx: POS[i][0], cy: POS[i][1], r: 25 }));
+    g2.appendChild(mk("circle", { "class": "body", cx: POS[i][0], cy: POS[i][1], r: 19 }));
+    var t = mk("text", { x: POS[i][0], y: POS[i][1] });
+    t.textContent = NAME[i];
+    g2.appendChild(t);
+
+    var idx = i;
+    g2.addEventListener("click", function (n) { return function () { toggleNode(n); }; }(idx));
+    svgEl.appendChild(g2);
+  }
+}
+
+/* ---------------------------------------------------------------- *
+ * Actions
+ * ---------------------------------------------------------------- */
+function clearViolations() {
+  st.reportMode = "closure";
+  st.nonIdem = false;
+  st.overrideR = null;
+  st.splice = false;
+}
+
+function toggleNode(i) {
+  st.S ^= (1 << i);
+  refresh();
+}
+
+function toggleEdge(u, v) {
+  var i;
+  for (i = 0; i < st.edges.length; i++) {
+    if (st.edges[i][0] === u && st.edges[i][1] === v) { st.edges.splice(i, 1); refresh(); return; }
+  }
+  st.edges.push([u, v]);
+  st.overrideR = null;
+  refresh();
+}
+
+function toggleR(m) {
+  var i = st.removed.indexOf(m);
+  if (i === -1) st.removed.push(m); else st.removed.splice(i, 1);
+  refresh();
+}
+
+function hashOf(s) {
+  var x = 2166136261, i;
+  for (i = 0; i < s.length; i++) { x ^= s.charCodeAt(i); x = Math.imul(x, 16777619); }
+  return (x >>> 0).toString(16);
+}
+
+function commitBundle(res) {
+  if (res.verdict !== "ACCEPT") return;
+  st.version += 1;
+  var payload = "v" + st.version + "|S=" + fmt(st.S) + "|C=" + fmt(closure(st.S)) + "|R=" + res.R.length + "|p=" + st.head;
+  st.head = hashOf(payload).slice(0, 7);
+  st.chain.push({ v: st.version, h: st.head, c: fmt(closure(st.S)), n: res.R.length });
+  st.snapR = res.R.slice();
+  st.overrideR = null;
+  refresh();
+}
+
+/* ---------------------------------------------------------------- *
+ * Refresh
+ * ---------------------------------------------------------------- */
+function refresh() {
+  var res = gate();
+  var R = res.R, rep = res.report, clo = closure(st.S);
+
+  renderGraph(rep, clo);
+
+  /* R chips: fixed points (toggleable) + injected (removable) */
+  var box = document.getElementById("rChips");
+  while (box.firstChild) box.removeChild(box.firstChild);
+  var fix = fixedPoints(), i, chip;
+  for (i = 0; i < fix.length; i++) {
+    chip = document.createElement("span");
+    chip.className = "chip" + (st.removed.indexOf(fix[i]) === -1 ? "" : " off");
+    chip.textContent = fmt(fix[i]);
+    (function (m) { chip.addEventListener("click", function () { toggleR(m); }); }(fix[i]));
+    box.appendChild(chip);
+  }
+  for (i = 0; i < st.injected.length; i++) {
+    chip = document.createElement("span");
+    chip.className = "chip added";
+    chip.textContent = fmt(st.injected[i]);
+    (function (m) { chip.addEventListener("click", function () {
+      var k = st.injected.indexOf(m); if (k !== -1) st.injected.splice(k, 1); refresh();
+    }); }(st.injected[i]));
+    box.appendChild(chip);
+  }
+
+  /* gate table */
+  var tb = document.getElementById("gateBody");
+  while (tb.firstChild) tb.removeChild(tb.firstChild);
+  for (i = 0; i < res.rows.length; i++) {
+    var r = res.rows[i];
+    var tr = document.createElement("tr");
+    if (r.status === "REJECT") tr.className = "row-reject";
+    if (r.status === "REVIEW") tr.className = "row-review";
+    var c1 = document.createElement("td"); c1.className = "code"; c1.textContent = r.code;
+    var c2 = document.createElement("td");
+    c2.innerHTML = r.label + "<div class='note'>" + r.note + "</div>";
+    var c3 = document.createElement("td");
+    var s = document.createElement("span");
+    s.className = "st " + r.status.toLowerCase();
+    s.textContent = r.status;
+    c3.appendChild(s);
+    tr.appendChild(c1); tr.appendChild(c2); tr.appendChild(c3);
+    tb.appendChild(tr);
+  }
+
+  /* verdict */
+  var v = document.getElementById("verdict");
+  v.className = "verdict " + res.verdict.toLowerCase();
+  document.getElementById("verdictBadge").textContent = res.verdict;
+  document.getElementById("verdictWhy").textContent = res.why;
+
+  /* bundle */
+  var b = document.getElementById("bundleView");
+  b.innerHTML =
+    "<span class='k'>bundle</span>   <span class='k'>version</span> " + st.version +
+    "   <span class='k'>parent</span> " + st.head + "\n" +
+    "<span class='k'>C</span>        reachability closure on 6 elements\n" +
+    "<span class='k'>R</span>        " + R.length + " members: " + R.map(fmt).join(" ") + "\n" +
+    "<span class='k'>S</span>        " + fmt(st.S) + "\n" +
+    "<span class='k'>C(S)</span>   " + fmt(clo) + "\n" +
+    "<span class='k'>report</span>   " + (R.indexOf(rep) === -1 ? "<span class='bad'>" + fmt(rep) + " ∉ R</span>" : fmt(rep)) + "\n" +
+    "<span class='k'>verdict</span>  " + res.verdict;
+
+  /* chain */
+  var ch = document.getElementById("chain");
+  while (ch.firstChild) ch.removeChild(ch.firstChild);
+  if (!st.chain.length) {
+    var e = document.createElement("span");
+    e.className = "mono"; e.style.color = "var(--faint)";
+    e.textContent = "genesis · nothing committed";
+    ch.appendChild(e);
+  } else {
+    for (i = 0; i < st.chain.length; i++) {
+      var bl = document.createElement("div");
+      bl.className = "block";
+      bl.innerHTML = "<span class='h'>#" + st.chain[i].v + " " + st.chain[i].h + "</span><span class='m'>" + st.chain[i].c + " · |R|=" + st.chain[i].n + "</span>";
+      ch.appendChild(bl);
+      if (i < st.chain.length - 1) {
+        var ar = document.createElement("span");
+        ar.className = "arrow"; ar.textContent = "→";
+        ch.appendChild(ar);
+      }
+    }
+  }
+
+  document.getElementById("headLabel").textContent = "head · " + st.head;
+  document.getElementById("opVersion").textContent = "v" + st.version;
+  document.getElementById("btnCommit").disabled = (res.verdict !== "ACCEPT");
+  document.getElementById("btnSplice").textContent = st.splice ? "Undo splice" : "Advance C, keep old R";
+
+  /* results under the try-it cards */
+  var reses = document.querySelectorAll(".try .res"), k, row;
+  for (k = 0; k < reses.length; k++) {
+    row = null;
+    if (k === 0 && st.reportMode === "decoupled") row = res;
+    if (k === 1 && st.reportMode === "open") row = res;
+    if (k === 2 && st.removed.length) row = res;
+    if (k === 3 && st.injected.length) row = res;
+    if (k === 4 && st.splice) row = res;
+    if (k === 5 && st.nonIdem) row = res;
+    if (row) {
+      var failed = "";
+      for (i = 0; i < row.rows.length; i++) if (row.rows[i].status !== "PASS" && row.rows[i].status !== "NA") failed += row.rows[i].code + " ";
+      reses[k].textContent = row.verdict + (failed ? " · " + failed.trim() : "");
+      reses[k].style.color = row.verdict === "ACCEPT" ? "var(--ok)" : (row.verdict === "REVIEW" ? "var(--warn)" : "var(--bad)");
+    } else {
+      reses[k].textContent = "";
+    }
+  }
+
+  st.last = res;
+  return res;
+}
+
+/* ---------------------------------------------------------------- *
+ * Wiring
+ * ---------------------------------------------------------------- */
+st.overrideR = null;
+
+document.getElementById("btnReset").addEventListener("click", function () {
+  st.edges = EDGES_DEFAULT.map(function (e) { return e.slice(); });
+  st.S = 1; st.removed = []; st.injected = [];
+  clearViolations();
+  refresh();
+});
+
+document.getElementById("btnPreset").addEventListener("click", function () {
+  var frag = st.edges.length > EDGES_DEFAULT.length;
+  st.edges = (frag ? EDGES_DEFAULT : EDGES_FRAG).map(function (e) { return e.slice(); });
+  st.removed = []; st.injected = [];
+  clearViolations();
+  refresh();
+});
+
+document.getElementById("btnCommit").addEventListener("click", function () {
+  commitBundle(gate());
+});
+
+document.getElementById("btnSplice").addEventListener("click", function () {
+  if (st.splice) { st.splice = false; st.overrideR = null; refresh(); return; }
+  st.snapR = effectiveR().slice();
+  var u = -1, v = -1, i;
+  for (i = 0; i < st.edges.length; i++) {
+    if (st.edges[i][0] === 1 && st.edges[i][1] === 2) { u = 1; v = 2; break; }
+  }
+  if (u === -1) { u = 1; v = 2; st.edges.push([u, v]); } else { st.edges.splice(i, 1); }
+  st.overrideR = st.snapR.slice();
+  st.splice = true;
+  refresh();
+});
+
+var acts = document.querySelectorAll("[data-act]");
+for (var ai = 0; ai < acts.length; ai++) {
+  (function (btn) {
+    btn.addEventListener("click", function () {
+      var a = btn.getAttribute("data-act");
+      if (a === "decouple") { clearViolations(); st.reportMode = (st.reportMode === "decoupled" ? "closure" : "decoupled"); }
+      if (a === "open") { clearViolations(); st.reportMode = (st.reportMode === "open" ? "closure" : "open"); }
+      if (a === "drop") {
+        clearViolations();
+        if (st.removed.length) {
+          st.removed = [];
+        } else {
+          var fix = fixedPoints(), ix, pick = -1;
+          for (ix = 0; ix < fix.length; ix++) {
+            if (fix[ix] === 0 || fix[ix] === FULL) continue;
+            st.removed = [fix[ix]];
+            if (checkIdentity(effectiveR()) !== null) { pick = fix[ix]; break; }
+          }
+          if (pick === -1) st.removed = [];
+        }
+      }
+      if (a === "inject") {
+        clearViolations();
+        var has = st.injected.indexOf(1);
+        if (has === -1) st.injected.push(1); else st.injected.splice(has, 1);
+      }
+      if (a === "splice") {
+        document.getElementById("btnSplice").click();
+        return;
+      }
+      if (a === "nonidem") { clearViolations(); st.nonIdem = !st.nonIdem; }
+      refresh();
+    });
+  }(acts[ai]));
+}
+
+refresh();
+</script>
+</body>
+</html>
