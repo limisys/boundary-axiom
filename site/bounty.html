@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Counterexample Record · Boundary / Axiom</title>
+<meta name="description" content="Open invitation to falsify the boundary-report claims: four stated targets, what counts as a submission, and how each verdict is recorded.">
+<meta property="og:title" content="Counterexample Record · Boundary / Axiom">
+<meta property="og:description" content="Open invitation to falsify the boundary-report claims: four stated targets, what counts as a submission, and how each verdict is recorded.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Boundary / Axiom">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="sitebar">
+  <div class="sitebar-inner">
+    <a class="brand" href="index.html">Boundary <span>/</span> Axiom</a>
+    <nav>
+      <a href="index.html">Entry</a>
+      <a href="technical.html">Technical</a>
+      <a href="demo.html">Demo</a>
+      <a href="evidence.html">Evidence</a>
+      <a href="open-bridge.html">Open bridge</a>
+      <a href="bounty.html">Counterexamples</a>
+      <a href="https://github.com/limisys/boundary-axiom">GitHub</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<section class="hero">
+  <p class="kicker">Counterexample record · open invitation</p>
+  <h1>Break it,<br><em>in public.</em></h1>
+  <p class="lede">This corpus is released so that it can be falsified. A construction
+  that survives its own checks beats an opinion that does not. Four claims are
+  stated precisely enough to be attacked; each is listed with the thing that would
+  defeat it.</p>
+  <div class="actions">
+    <a class="button" href="https://github.com/limisys/boundary-axiom/issues/new?template=counterexample.md">Submit a counterexample</a>
+    <a class="quiet" href="technical.html">What is claimed →</a>
+  </div>
+</section>
+
+<section>
+  <p class="label">Open targets</p>
+  <ul class="list">
+    <li><b>C1 · Report = fixed family.</b> On a Moore report family, the report
+    family is exactly the fixed-point family of <code>c<sub>R</sub></code>.
+    Defeated by: a reported set that is not closed, or a closed set that is not
+    reported, inside the stated class.</li>
+    <li><b>C2 · The family determines the closure.</b> Two distinct closure
+    operators on the same domain with the same fixed-point family. Defeated by: an
+    explicit pair, with the differing value exhibited.</li>
+    <li><b>C3 · The gate is sound and complete for R1–R7.</b> Defeated by: a
+    finite-state trace that passes the reference gate and violates joint commit
+    consistency, or the reverse.</li>
+    <li><b>C4 · Weak equivalence.</b> <code>c<sub>R</sub> = c<sub>R′</sub></code>
+    exactly when <code>R = R′</code>. Defeated by: a pair of report families with
+    equal closures and unequal members.</li>
+  </ul>
+  <p style="margin-top:22px">Claims outside this list — the attribution bridge, a
+  unique level <code>w</code>, A7 from category theory, production behaviour — are
+  stated as open on the <a href="open-bridge.html">open bridge</a> page. Refuting
+  them is welcome, but they are not scored as counterexamples to the core.</p>
+</section>
+
+<section>
+  <p class="label">What counts as a submission</p>
+  <ul class="list">
+    <li><b>Minimal.</b> The smallest object that fails: one family, one trace, one
+    pair. A large construction that happens to fail is harder to judge and is
+    asked to be reduced.</li>
+    <li><b>Machine-checkable.</b> A Lean file that builds against this repository,
+    or a Python script that runs against <code>architecture/gate_reference.py</code>.
+    Prose is read but not scored.</li>
+    <li><b>Reproducible.</b> The command that exhibits the failure, and the output
+    you obtained.</li>
+    <li><b>On the record.</b> State the claim ID you are attacking and the verdict
+    you expect.</li>
+  </ul>
+</section>
+
+<section>
+  <p class="label">How it is judged</p>
+  <p>Three outcomes, published as they are decided. <b>Accepted</b>: the
+  construction reproduces and defeats the claim as stated. <b>Refuted</b>: the
+  construction does not do what it claims, with the reason given. <b>Out of
+  scope</b>: the target is not a claim this corpus makes, with the boundary
+  restated. A rejected construction is recorded too, unless the submitter asks
+  otherwise.</p>
+</section>
+
+<section>
+  <p class="label">Credit</p>
+  <p>Accepted counterexamples are listed below with the name or handle the
+  submitter chooses. No money is offered. The credit is the record: date, claim,
+  construction, verdict.</p>
+  <ul class="list">
+    <li><b>No third-party counterexample is recorded yet.</b> The non-Moore
+    counterexample on the technical page is the programme's own negative control,
+    not a result of this invitation.</li>
+  </ul>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div>The Boundary Is the Report · public site · 2026-10-23</div>
+    <div>Code Apache-2.0 · documentation CC BY 4.0 · papers are preprints, not peer-reviewed.</div>
+    <div><a href="https://github.com/limisys/boundary-axiom">Repository</a> · <a href="technical.html">Technical edition</a> · <a href="https://github.com/limisys/boundary-axiom/issues">Issues</a></div>
+  </div>
+</footer>
+</body>
+</html>

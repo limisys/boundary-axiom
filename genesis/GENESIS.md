@@ -64,7 +64,7 @@ tar -xzf release/boundary-axiom-f01cf6f-v1.1.0.tar.gz
 sha256sum -c MANIFEST.attestation.sha256
 
 # 4. genesis digest and RFC 3161 token
-sha256sum -c genesis/GENESIS.sha256
+(cd genesis && sha256sum -c GENESIS.sha256)   # the file names GENESIS.json bare; run it inside genesis/
 openssl ts -verify -data genesis/GENESIS.json -in genesis/GENESIS.json.tsr -CAfile genesis/tsa-cacert.pem
 
 # 5. both Bitcoin anchors (complete; -f points at the anchored bytes)
@@ -73,6 +73,7 @@ ots verify -f genesis/GENESIS.json genesis/GENESIS.json.ots
 ```
 
 `ots verify` needs a Bitcoin source for the block header. Without a local node, `ots info <proof>.ots` already shows the attestation and the expected merkle root, which can be compared against any public explorer.
+The verify array inside GENESIS.json is a digest-level summary; this section is the authoritative command list.
 
 ## Scope note
 
