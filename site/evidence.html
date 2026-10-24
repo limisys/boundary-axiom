@@ -49,8 +49,8 @@ window.MathJax = {
 <a class="back" href="index.html">← Index</a>
 <article class="paper">
 <h1>Evidence ledger</h1>
-<p><strong>Release:</strong> <code>boundary-axiom</code> v0.1.0 staging<br>
-<strong>Date:</strong> 2026-10-23<br>
+<p><strong>Release:</strong> <code>boundary-axiom</code> v1.1.0 — published, <code>main@f01cf6f</code>, tag <code>v1.1.0</code><br>
+<strong>Date:</strong> 2026-10-24<br>
 <strong>Toolchain:</strong> Lean 4.33.0 (<code>d8b18978322de05a8f3dba51ef03cf5461676c17</code>), Mathlib 4.33.0</p>
 <p>This ledger separates what was machine-checked from what is design, and from what
 is still open. Do not quote a count without its scope.</p>
@@ -127,8 +127,8 @@ c3eaed0c74e0f704dbf2d2cfa219e4c5ce4eb911bfa923e252f9d7ee43752f6c  report-core/le
 90e9caf1d066ce69eb1c402ec098ede92290b925f8b31c13df0fb2bb14808a57  report-core/lean/ReportIdentityCore.lean
 9513c058d8d2a207e2a2b7c17ebad30193f1fe55c80d349205fb39484440bce8  report-core/lean/ReportIdentity.lean
 </code></pre>
-<p><code>SHA256SUMS</code> at the repository root is the release manifest; if it differs from
-this table, <code>SHA256SUMS</code> is authoritative for the packaged tree.</p>
+<p><code>MANIFEST.public.sha256</code> at the repository root is the release manifest (one SHA-256 per tracked file, 183 entries); if it differs from this table, the manifest is authoritative for the packaged tree.</p>
+<p><strong>Release snapshot and timestamp.</strong> The archived tree <code>boundary-axiom-f01cf6f-v1.1.0.tar.gz</code> (SHA-256 <code>60b1dbdeef5364bbeddbcdcd240aa35acbfe4763e8824c530adfae77ccc1b64b</code>) is anchored to Bitcoin through OpenTimestamps; the <code>.ots</code> proof and checksum are in <code>ots/</code>. Verify with <code>ots verify ots/&lt;file&gt;.ots</code> against the snapshot; the timestamp is complete once the Bitcoin attestation upgrades.</p>
 <h2>4. Gate evidence</h2>
 <p><code>architecture/gate_reference.py</code> is a standard-library finite-state reference.
 The current release adds the R6 wrapper and passes <strong>14/14</strong> protocol checks:</p>
