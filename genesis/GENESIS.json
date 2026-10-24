@@ -1,0 +1,26 @@
+{
+  "schema": "genesis-timestamp/1",
+  "title": "The Mind Has a Boundary - independent research genesis record",
+  "artifact": {
+    "repository": "https://github.com/limisys/boundary-axiom",
+    "commit": "f01cf6f7dffd65b0d835e0139912d66dc734c4d7",
+    "tag": "v1.1.0",
+    "package": "boundary-axiom-f01cf6f-v1.1.0.tar.gz",
+    "package_bytes": 1463311,
+    "package_sha256": "60b1dbdeef5364bbeddbcdcd240aa35acbfe4763e8824c530adfae77ccc1b64b",
+    "file_count": 184,
+    "tree_merkle_root_sha256": "161e48a62252b59247abae510c65771f9c63ca43956804f70fd98ad3ee39eaba",
+    "manifest": "MANIFEST.public.sha256",
+    "manifest_sha256": "1fb0301132e66edfd20d0286691db0f78d2a83e9029ee5fd35cf77fdb45fa59c",
+    "manifest_entries": 183
+  },
+  "created_utc": "2026-10-24T03:48:06Z",
+  "algorithm": "SHA-256",
+  "claim": "This digest fixes the complete published package at the commit above. Any later change to the tree changes the root and voids this record.",
+  "verify": [
+    "sha256sum -c boundary-axiom-f01cf6f-v1.1.0.tar.gz.sha256",
+    "tar -xzf boundary-axiom-f01cf6f-v1.1.0.tar.gz && cd boundary-axiom-f01cf6f && sha256sum -c MANIFEST.public.sha256",
+    "sha256sum GENESIS.json",
+    "ots verify GENESIS.json.ots"
+  ]
+}
