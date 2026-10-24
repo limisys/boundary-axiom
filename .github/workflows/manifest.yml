@@ -1,0 +1,61 @@
+name: manifest
+
+# 一次性工具：在干净的 runner 上解析依赖并生成 lake-manifest.json，
+# 由 bot 提交回 main。触发方式仅 workflow_dispatch（手动点击）。
+# 之后可保留（用于依赖升级）或删除。
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: manifest
+  cancel-in-progress: false
+
+jobs:
+  pin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install elan
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh \
+            | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      - name: Install toolchain from lean-toolchain
+        run: |
+          set -euo pipefail
+          TC="$(cut -d: -f2 lean-toolchain)"
+          echo "toolchain: $TC"
+          elan toolchain install "$TC"
+          elan override set "$TC"
+          lake --version
+
+      - name: lake update
+        run: |
+          set -euo pipefail
+          lake update
+
+      - name: Commit lake-manifest.json
+        run: |
+          set -euo pipefail
+          test -f lake-manifest.json || { echo "manifest not produced"; exit 1; }
+          # 内网路径/凭据自检：清单里若出现绝对本地路径则中止
+          if grep -nE '/home/|/Users/|ghp_|github_pat_' lake-manifest.json; then
+            echo "manifest contains local paths or credentials; aborting"; exit 1
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add lake-manifest.json
+          if git diff --cached --quiet; then
+            echo "manifest unchanged; nothing to commit"
+          else
+            git commit -m "build: pin lake-manifest.json from lake update"
+            git push
+          fi
