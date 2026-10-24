@@ -1,0 +1,75 @@
+# 统一仓 Lake 配置（便携路径：首次使用需 `lake update && lake exe cache get`）
+# 离线校验请用 `python3 scripts/build.py`（只读既有 Mathlib packages，不联网）。
+name = "BoundaryProgrammeUnified"
+defaultTargets = ["BoundaryProgramme"]
+
+[[lean_lib]]
+name = "BoundaryProgrammeUnified"
+srcDir = "lean"
+roots = [
+  "BoundaryBridge_layers",
+  "BoundaryProgramme",
+  "BoundaryReportIdentity",
+  "BoundaryTheory",
+  "BoundaryTheory_sigmaCoh",
+  "BridgeCaliberMenu",
+  "CalibrationProtocol",
+  "CategoricalDictionary",
+  "ClosureFromInterventions",
+  "ClosureGauge",
+  "CommitAdjunction",
+  "ComparabilityMatters",
+  "ContinuousRelaxation",
+  "ContinuousSemigroupExp",
+  "ContrastExamples",
+  "CoreConstantSpectrum",
+  "DescriptionLayer",
+  "DimensionAlgebra",
+  "FaceIdentification",
+  "Falsifiers",
+  "FieldClosure",
+  "GaugeNoGo",
+  "KernelCalibration",
+  "LanguageInterventions",
+  "LanguageStrict",
+  "LevelDynamics",
+  "LevelReadout",
+  "LevelSelection",
+  "LocusVsBoundary",
+  "LogisticCore",
+  "MaintenanceMargin",
+  "MeasurableProtocol",
+  "ObservableProxy",
+  "OrbitInvariantRow",
+  "PolarityChange",
+  "ProgrammeSpine",
+  "ProgrammeSpineFull",
+  "ProtocolLogic",
+  "ProxyInvariance",
+  "ReadoutDynamics",
+  "ReadoutExistence",
+  "RelaxRobust",
+  "ReportBridge",
+  "ReportCountermodels",
+  "RescalingEquivariance",
+  "ScalingsAndUnits",
+  "SelfReferenceLevel",
+  "ShapeForcing",
+  "SharpnessClosure",
+  "ThreeComponent",
+  "TimeScaleInvariance",
+  "TwoFacesBridge",
+  "UnifiedClosure",
+  "UnitReading",
+  "ValueLayerExtension",
+  "ValueLayerMin"
+]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "v4.33.0"
+
+[[require]]
+name = "CausModel"
+path = "vendor/CausModel"

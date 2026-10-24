@@ -1,0 +1,306 @@
+{
+  "all": {
+    "files": 56,
+    "thm_lem": 467,
+    "def": 90
+  },
+  "b_line": {
+    "files": 55,
+    "thm_lem": 434,
+    "def": 83
+  },
+  "a_module": {
+    "files": 1,
+    "thm_lem": 33,
+    "def": 7
+  },
+  "paper_b_canonical": {
+    "files": 53,
+    "thm_lem": 417,
+    "def": 77
+  },
+  "method": "strip nested /- -/ and -- comments, then count declarations with the same regex as check_no_sorry.py; archive/ is not under lean/ and is not counted",
+  "note": "统一仓全部 56 件；四作用域由同一批源件切出，不是四套互相矛盾的数。论文 B 引用 paper_b_canonical=417/77/53；B 线全量 434/83/55；A 模块 33/7/1；统一审计体 467/90/56。",
+  "files": [
+    {
+      "file": "BoundaryBridge_layers.lean",
+      "theorem_or_lemma": 17,
+      "def_or_struct": 2
+    },
+    {
+      "file": "BoundaryProgramme.lean",
+      "theorem_or_lemma": 0,
+      "def_or_struct": 0
+    },
+    {
+      "file": "BoundaryReportIdentity.lean",
+      "theorem_or_lemma": 13,
+      "def_or_struct": 5
+    },
+    {
+      "file": "BoundaryTheory.lean",
+      "theorem_or_lemma": 33,
+      "def_or_struct": 7
+    },
+    {
+      "file": "BoundaryTheory_sigmaCoh.lean",
+      "theorem_or_lemma": 9,
+      "def_or_struct": 3
+    },
+    {
+      "file": "BridgeCaliberMenu.lean",
+      "theorem_or_lemma": 13,
+      "def_or_struct": 2
+    },
+    {
+      "file": "CalibrationProtocol.lean",
+      "theorem_or_lemma": 5,
+      "def_or_struct": 0
+    },
+    {
+      "file": "CategoricalDictionary.lean",
+      "theorem_or_lemma": 5,
+      "def_or_struct": 1
+    },
+    {
+      "file": "ClosureFromInterventions.lean",
+      "theorem_or_lemma": 13,
+      "def_or_struct": 4
+    },
+    {
+      "file": "ClosureGauge.lean",
+      "theorem_or_lemma": 4,
+      "def_or_struct": 0
+    },
+    {
+      "file": "CommitAdjunction.lean",
+      "theorem_or_lemma": 10,
+      "def_or_struct": 3
+    },
+    {
+      "file": "ComparabilityMatters.lean",
+      "theorem_or_lemma": 6,
+      "def_or_struct": 2
+    },
+    {
+      "file": "ContinuousRelaxation.lean",
+      "theorem_or_lemma": 8,
+      "def_or_struct": 1
+    },
+    {
+      "file": "ContinuousSemigroupExp.lean",
+      "theorem_or_lemma": 4,
+      "def_or_struct": 0
+    },
+    {
+      "file": "ContrastExamples.lean",
+      "theorem_or_lemma": 5,
+      "def_or_struct": 0
+    },
+    {
+      "file": "CoreConstantSpectrum.lean",
+      "theorem_or_lemma": 17,
+      "def_or_struct": 2
+    },
+    {
+      "file": "DescriptionLayer.lean",
+      "theorem_or_lemma": 4,
+      "def_or_struct": 0
+    },
+    {
+      "file": "DimensionAlgebra.lean",
+      "theorem_or_lemma": 9,
+      "def_or_struct": 9
+    },
+    {
+      "file": "FaceIdentification.lean",
+      "theorem_or_lemma": 6,
+      "def_or_struct": 1
+    },
+    {
+      "file": "Falsifiers.lean",
+      "theorem_or_lemma": 9,
+      "def_or_struct": 0
+    },
+    {
+      "file": "FieldClosure.lean",
+      "theorem_or_lemma": 13,
+      "def_or_struct": 2
+    },
+    {
+      "file": "GaugeNoGo.lean",
+      "theorem_or_lemma": 8,
+      "def_or_struct": 1
+    },
+    {
+      "file": "KernelCalibration.lean",
+      "theorem_or_lemma": 5,
+      "def_or_struct": 0
+    },
+    {
+      "file": "LanguageInterventions.lean",
+      "theorem_or_lemma": 4,
+      "def_or_struct": 0
+    },
+    {
+      "file": "LanguageStrict.lean",
+      "theorem_or_lemma": 5,
+      "def_or_struct": 1
+    },
+    {
+      "file": "LevelDynamics.lean",
+      "theorem_or_lemma": 9,
+      "def_or_struct": 1
+    },
+    {
+      "file": "LevelReadout.lean",
+      "theorem_or_lemma": 7,
+      "def_or_struct": 1
+    },
+    {
+      "file": "LevelSelection.lean",
+      "theorem_or_lemma": 7,
+      "def_or_struct": 2
+    },
+    {
+      "file": "LocusVsBoundary.lean",
+      "theorem_or_lemma": 12,
+      "def_or_struct": 4
+    },
+    {
+      "file": "LogisticCore.lean",
+      "theorem_or_lemma": 16,
+      "def_or_struct": 3
+    },
+    {
+      "file": "MaintenanceMargin.lean",
+      "theorem_or_lemma": 5,
+      "def_or_struct": 1
+    },
+    {
+      "file": "MeasurableProtocol.lean",
+      "theorem_or_lemma": 3,
+      "def_or_struct": 0
+    },
+    {
+      "file": "ObservableProxy.lean",
+      "theorem_or_lemma": 6,
+      "def_or_struct": 0
+    },
+    {
+      "file": "OrbitInvariantRow.lean",
+      "theorem_or_lemma": 4,
+      "def_or_struct": 1
+    },
+    {
+      "file": "PolarityChange.lean",
+      "theorem_or_lemma": 7,
+      "def_or_struct": 0
+    },
+    {
+      "file": "ProgrammeSpine.lean",
+      "theorem_or_lemma": 1,
+      "def_or_struct": 0
+    },
+    {
+      "file": "ProgrammeSpineFull.lean",
+      "theorem_or_lemma": 1,
+      "def_or_struct": 0
+    },
+    {
+      "file": "ProtocolLogic.lean",
+      "theorem_or_lemma": 8,
+      "def_or_struct": 3
+    },
+    {
+      "file": "ProxyInvariance.lean",
+      "theorem_or_lemma": 5,
+      "def_or_struct": 0
+    },
+    {
+      "file": "ReadoutDynamics.lean",
+      "theorem_or_lemma": 7,
+      "def_or_struct": 0
+    },
+    {
+      "file": "ReadoutExistence.lean",
+      "theorem_or_lemma": 18,
+      "def_or_struct": 4
+    },
+    {
+      "file": "RelaxRobust.lean",
+      "theorem_or_lemma": 9,
+      "def_or_struct": 1
+    },
+    {
+      "file": "ReportBridge.lean",
+      "theorem_or_lemma": 4,
+      "def_or_struct": 1
+    },
+    {
+      "file": "ReportCountermodels.lean",
+      "theorem_or_lemma": 4,
+      "def_or_struct": 1
+    },
+    {
+      "file": "RescalingEquivariance.lean",
+      "theorem_or_lemma": 9,
+      "def_or_struct": 3
+    },
+    {
+      "file": "ScalingsAndUnits.lean",
+      "theorem_or_lemma": 6,
+      "def_or_struct": 0
+    },
+    {
+      "file": "SelfReferenceLevel.lean",
+      "theorem_or_lemma": 3,
+      "def_or_struct": 0
+    },
+    {
+      "file": "ShapeForcing.lean",
+      "theorem_or_lemma": 5,
+      "def_or_struct": 0
+    },
+    {
+      "file": "SharpnessClosure.lean",
+      "theorem_or_lemma": 11,
+      "def_or_struct": 1
+    },
+    {
+      "file": "ThreeComponent.lean",
+      "theorem_or_lemma": 11,
+      "def_or_struct": 5
+    },
+    {
+      "file": "TimeScaleInvariance.lean",
+      "theorem_or_lemma": 6,
+      "def_or_struct": 1
+    },
+    {
+      "file": "TwoFacesBridge.lean",
+      "theorem_or_lemma": 13,
+      "def_or_struct": 3
+    },
+    {
+      "file": "UnifiedClosure.lean",
+      "theorem_or_lemma": 16,
+      "def_or_struct": 5
+    },
+    {
+      "file": "UnitReading.lean",
+      "theorem_or_lemma": 6,
+      "def_or_struct": 1
+    },
+    {
+      "file": "ValueLayerExtension.lean",
+      "theorem_or_lemma": 9,
+      "def_or_struct": 1
+    },
+    {
+      "file": "ValueLayerMin.lean",
+      "theorem_or_lemma": 14,
+      "def_or_struct": 1
+    }
+  ]
+}

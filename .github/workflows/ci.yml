@@ -1,0 +1,44 @@
+name: verify
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lean:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Lean toolchain
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: .
+          build: false
+
+      - name: Resolve and build
+        run: |
+          lake update
+          lake exe cache get
+          lake build
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python dependencies
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Public-tree hygiene
+        run: bash scripts/public_scan.sh
+
+      - name: Counts, claims, 0-sorry/axiom, reproduction, axioms
+        run: bash scripts/ci_check.sh

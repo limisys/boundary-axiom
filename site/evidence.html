@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence ledger</title>
+<meta name="description" content="Counts by scope, hashes, build and gate records, and open items.">
+<meta property="og:title" content="Evidence ledger">
+<meta property="og:description" content="Counts by scope, hashes, build and gate records, and open items.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Boundary / Axiom">
+<meta property="og:image" content="https://limisys.github.io/boundary-axiom/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://limisys.github.io/boundary-axiom/assets/og.png">
+<link rel="stylesheet" href="assets/style.css">
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true,
+    tags: 'none'
+  },
+  svg: { fontCache: 'global', mtextInheritFont: true },
+  options: {
+    enableMenu: false,
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  }
+};
+</script>
+<script defer src="assets/mathjax/tex-svg-full.js"></script>
+</head>
+<body>
+<header class="sitebar">
+  <div class="sitebar-inner">
+    <a class="brand" href="index.html">Boundary <span>/</span> Axiom</a>
+    <nav>
+      <a href="index.html">Entry</a>
+      <a href="technical.html">Technical</a>
+      <a href="evidence.html">Evidence</a>
+      <a href="open-bridge.html">Open bridge</a>
+      <a href="https://github.com/limisys/boundary-axiom">GitHub</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<a class="back" href="index.html">← Index</a>
+<article class="paper">
+<h1>Evidence ledger</h1>
+<p><strong>Release:</strong> <code>boundary-axiom</code> v0.1.0 staging<br>
+<strong>Date:</strong> 2026-10-23<br>
+<strong>Toolchain:</strong> Lean 4.33.0 (<code>d8b18978322de05a8f3dba51ef03cf5461676c17</code>), Mathlib 4.33.0</p>
+<p>This ledger separates what was machine-checked from what is design, and from what
+is still open. Do not quote a count without its scope.</p>
+<hr>
+<h2>1. Scopes and counts</h2>
+<table>
+<thead>
+<tr>
+<th>Scope</th>
+<th style="text-align:right">Files</th>
+<th style="text-align:right">Theorems/lemmas</th>
+<th style="text-align:right">Definitions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Full verified corpus</strong> (<code>lean/</code>)</td>
+<td style="text-align:right"><strong>56</strong></td>
+<td style="text-align:right"><strong>467</strong></td>
+<td style="text-align:right"><strong>90</strong></td>
+</tr>
+<tr>
+<td><strong>Report-identity core</strong> (<code>report-core/</code>)</td>
+<td style="text-align:right"><strong>6</strong></td>
+<td style="text-align:right"><strong>45</strong></td>
+<td style="text-align:right"><strong>13</strong></td>
+</tr>
+<tr>
+<td>A-module (<code>lean/BoundaryTheory.lean</code>)</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">33</td>
+<td style="text-align:right">7</td>
+</tr>
+</tbody>
+</table>
+<p>The full corpus and the A-module are contained in this repository. The A-module's
+33 declarations are the boundary-potential evidence; they are not the
+report-identity core's 45. The full corpus's 467 is the whole 56-file development
+body, not the six-module core.</p>
+<h2>2. Build evidence</h2>
+<p>The minimal core was built with the offline script:</p>
+<pre><code class="language-bash">MATHLIB_PACKAGES=/path/to/.lake/packages ./scripts/verify_offline.sh
+</code></pre>
+<p>Expected output:</p>
+<pre><code>PASS: 6 modules compiled (0 sorry / 0 axiom).
+</code></pre>
+<p>The six modules are:</p>
+<ol>
+<li><code>LocusVsBoundary</code></li>
+<li><code>ClosureFromInterventions</code></li>
+<li><code>ReportBridge</code></li>
+<li><code>ReportIdentityCore</code></li>
+<li><code>ReportCountermodelsCore</code></li>
+<li><code>ReportIdentity</code> (umbrella import; no declarations)</li>
+</ol>
+<p>Axiom audit: the load-bearing declarations depend only on
+<code>[propext, Classical.choice, Quot.sound]</code>. No <code>sorry</code>, no <code>admit</code>, no custom
+axioms.</p>
+<p>The v1.0 <code>UpClosed</code> files are retained only under <code>audit/</code>. They are not imported
+by the v1.1 build. The audit proves <code>UpClosed R ↔ R = Set.univ</code>; citing v1.0 as
+a non-vacuous result would be an error.</p>
+<h2>3. Core file hashes</h2>
+<pre><code>7535e77f296aba1fdb0c539472af967f5c9ae4da7d3e430ff0846baa21b035ff  architecture/gate_reference.py
+f7d6feb67309a29d05777fca006306a2160e41cf6cd2875cf85eb949afb8e75e  report-core/audit/AUDIT_UpClosed.lean
+32cca7b502c3f4e526766dd447b1de16e82a16d044b81fc0a8c566650a32d410  report-core/audit/AUDIT_UpClosed.log
+b625ef07384b6bc273063073664df7ee09cf792fcbad62a701f342cfacd731e3  report-core/audit/AUDIT_UpClosed.md
+5d7319b2eaa81bcb969f7de1d673f4bfb14e55ea842d71515d7225dfb0677daa  report-core/audit/BoundaryReportIdentity.lean
+b2ac68221f1cf9a783f09007c5345cbe37a4c042c489cfa4ea046db091d02b44  report-core/audit/README.md
+8f628b47f513c2891e222f783e12b9d139f7dfdba793f660cbd91e10e4a0c8f3  report-core/audit/ReportCountermodels.lean
+68ba641bf58fec6a7772fb968500988b8ed03d6338a3760e94172525e70125c6  report-core/lean/ClosureFromInterventions.lean
+b40ea2de57b0c56e5b84999f310c855568c366cd338cc67a5800c6989595f510  report-core/lean/LocusVsBoundary.lean
+c3eaed0c74e0f704dbf2d2cfa219e4c5ce4eb911bfa923e252f9d7ee43752f6c  report-core/lean/ReportBridge.lean
+4146190b2792a0f5ee5b81ad56389b510e10606a1a080d2dbd31792c187d5b13  report-core/lean/ReportCountermodelsCore.lean
+90e9caf1d066ce69eb1c402ec098ede92290b925f8b31c13df0fb2bb14808a57  report-core/lean/ReportIdentityCore.lean
+9513c058d8d2a207e2a2b7c17ebad30193f1fe55c80d349205fb39484440bce8  report-core/lean/ReportIdentity.lean
+</code></pre>
+<p><code>SHA256SUMS</code> at the repository root is the release manifest; if it differs from
+this table, <code>SHA256SUMS</code> is authoritative for the packaged tree.</p>
+<h2>4. Gate evidence</h2>
+<p><code>architecture/gate_reference.py</code> is a standard-library finite-state reference.
+The current release adds the R6 wrapper and passes <strong>14/14</strong> protocol checks:</p>
+<pre><code>RESULT: 14/14 protocol tests passed
+PASS: 14/14 protocol tests
+</code></pre>
+<p>Coverage:</p>
+<ul>
+<li>G1: positive bundle accepted and committed; Moore + <code>c_R = C</code>.</li>
+<li>G2: non-Moore family → REVIEW (R2).</li>
+<li>G3: non-closure → REJECT (R1).</li>
+<li>G4: <code>c_R ≠ C</code> → REJECT (R3).</li>
+<li>G5: report outside <code>R</code> → REJECT (R4).</li>
+<li>G6: version/evidence mismatch → REVIEW (R5).</li>
+<li>G7: parent mismatch → REJECT (R7).</li>
+<li>G7b: zero/multiple candidates → REVIEW (R6); one candidate accepted.</li>
+<li>G8: simulated crash before atomic swap leaves head unchanged.</li>
+<li>G9: action gate ALLOW/DENY.</li>
+<li>G10: canonical <code>Fix(c_I)</code> is Moore and accepted.</li>
+<li>G11: per-state threshold family is not Moore → REVIEW.</li>
+<li>G12: <code>Fix(c_R)</code> of the threshold family is the threshold plus <code>Ω</code>.</li>
+</ul>
+<p>This is a protocol check, not a production validation. It does not measure
+acceptance/rejection rates on a real task.</p>
+<h2>5. What is not in this ledger</h2>
+<ul>
+<li>No proof that the attribution presheaf induces the closure; see
+<code>docs/OPEN_BRIDGE.md</code>.</li>
+<li>No uniqueness theorem for the level parameter <code>w</code>; the gate must take <code>w</code> as
+an input or adopt a separate selection principle.</li>
+<li>No derivation of A7 or the potential form from the free category. The
+A-module is a separate model-class scope.</li>
+<li>No production deployment or adversarial runtime test.</li>
+<li>No peer review. The papers are preprints.</li>
+</ul>
+<h2>6. Reproduction notes</h2>
+<p>The Lean build requires Mathlib 4.33.0. A clean clone needs network on the first
+<code>lake update</code> / <code>lake exe cache get</code>; the offline script requires a prebuilt
+Mathlib package tree. The static site needs only Python 3 and a browser; MathJax
+is vendored under <code>site/assets/mathjax</code>.</p>
+<p>Site build:</p>
+<pre><code class="language-bash">python3 site/build_site.py
+python3 -m http.server 8793 --bind 127.0.0.1 --directory site
+</code></pre>
+<p>Gate:</p>
+<pre><code class="language-bash">python3 architecture/gate_reference.py
+</code></pre>
+
+</article>
+</main>
+<footer>
+  <div class="wrap">
+    <div>The Boundary Is the Report · public site · 2026-10-23</div>
+    <div>Code Apache-2.0 · documentation CC BY 4.0 · papers are preprints, not peer-reviewed.</div>
+    <div><a href="https://github.com/limisys/boundary-axiom">Repository</a> · <a href="technical.html">Technical edition</a> · <a href="https://github.com/limisys/boundary-axiom/issues">Issues</a></div>
+  </div>
+</footer>
+</body>
+</html>

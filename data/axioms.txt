@@ -1,0 +1,15 @@
+'BoundaryTheory.C_H_eq_pi_sq_div_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ValueLayerMin.V_global_min' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ValueLayerMin.V_eq_min_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'BoundaryReportIdentity.rep_eq_iff_closureOperator_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ReportCountermodels.nonUpClosed_not_canonical' depends on axioms: [propext, Classical.choice, Quot.sound]
+BoundaryTheory.C_H_eq_pi_sq_div_three : ∫ (z : ℝ), BoundaryTheory.entropyDensity z = Real.pi ^ 2 / 3
+ValueLayerMin.V_global_min : ∀ (c₀ α κ : ℝ),
+  0 < c₀ → 0 < α → 0 < κ → BoundaryTheory.V c₀ α (BoundaryTheory.kappaStar c₀ α) ≤ BoundaryTheory.V c₀ α κ
+ValueLayerExtension.sigma : ℝ → ℝ → ℝ → ℝ
+@BoundaryReportIdentity.rep_eq_iff_closureOperator_eq : ∀ {Ω : Type u_1} {R R' : BoundaryReportIdentity.Report Ω},
+  BoundaryReportIdentity.UpClosed R →
+    BoundaryReportIdentity.UpClosed R' →
+      (BoundaryReportIdentity.repClosed R = BoundaryReportIdentity.repClosed R' ↔ R = R')
+ReportCountermodels.nonUpClosed_not_canonical : ∃ R,
+  ¬BoundaryReportIdentity.UpClosed R ∧ R ≠ LocusVsBoundary.Fix (BoundaryReportIdentity.repClosed R)

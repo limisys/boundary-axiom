@@ -1,0 +1,17 @@
+  PASS  G1 positive bundle ACCEPT + commit
+  PASS  G1 R is Moore and c_R=C
+  PASS  G2 non-Moore -> REVIEW(R2)
+  PASS  G3 non-closure -> REJECT(R1)
+  PASS  G4 c_R != C -> REJECT(R3)
+  PASS  G5 report outside R -> REJECT(R4)
+  PASS  G6 version mismatch -> REVIEW(R5)
+  PASS  G7 parent mismatch -> REJECT(R7)
+  PASS  G7b R6 zero/multiple -> REVIEW, one -> ACCEPT
+  PASS  G8 crash -> no partial commit
+  PASS  G9 action gate ALLOW/DENY
+  PASS  G10 canon Fix(c_I) is Moore and ACCEPT
+  PASS  G11 threshold family is not Moore -> REVIEW
+  PASS  G12 threshold Fix(c_R) = threshold ∪ {Ω}
+
+RESULT: 14/14 protocol tests passed
+PASS: 14/14 protocol tests

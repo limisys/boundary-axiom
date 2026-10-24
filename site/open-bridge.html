@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The open bridge: attribution → closure</title>
+<meta name="description" content="The attribution-to-closure gap, the section/level problem, and what a bridge would need.">
+<meta property="og:title" content="The open bridge: attribution → closure">
+<meta property="og:description" content="The attribution-to-closure gap, the section/level problem, and what a bridge would need.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Boundary / Axiom">
+<meta property="og:image" content="https://limisys.github.io/boundary-axiom/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://limisys.github.io/boundary-axiom/assets/og.png">
+<link rel="stylesheet" href="assets/style.css">
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true,
+    tags: 'none'
+  },
+  svg: { fontCache: 'global', mtextInheritFont: true },
+  options: {
+    enableMenu: false,
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  }
+};
+</script>
+<script defer src="assets/mathjax/tex-svg-full.js"></script>
+</head>
+<body>
+<header class="sitebar">
+  <div class="sitebar-inner">
+    <a class="brand" href="index.html">Boundary <span>/</span> Axiom</a>
+    <nav>
+      <a href="index.html">Entry</a>
+      <a href="technical.html">Technical</a>
+      <a href="evidence.html">Evidence</a>
+      <a href="open-bridge.html">Open bridge</a>
+      <a href="https://github.com/limisys/boundary-axiom">GitHub</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<a class="back" href="index.html">← Index</a>
+<article class="paper">
+<h1>The open bridge: attribution → closure</h1>
+<p>This note records the one structural gap that a reader should not mistake for a
+result of the report-identity core.</p>
+<h2>The gap</h2>
+<p>The programme begins with an attribution presheaf</p>
+<p>\[
+A:\mathbf{Caus}^{\mathrm{op}}\to\Delta^2.
+\]</p>
+<p>The core begins with a closure operator <code>C</code> on a state space <code>Ω</code>. Nothing in the
+Lean development constructs <code>C</code> from <code>A</code>. The attribution module and the closure
+module are separate; the bridge is not a theorem.</p>
+<p>There is also a level mismatch:</p>
+<ul>
+<li><code>A</code> is implemented as a <strong>type-valued</strong> presheaf: at each state, <code>A(X)</code> is the
+type <code>Simplex</code>, not an actual distribution.</li>
+<li>An actual attribution field therefore requires a <strong>global section</strong>
+<code>s : ∀ X, A(X)</code> compatible with the path maps. No such section is defined in the
+current development.</li>
+<li>The sharpness closure <code>c(κ, μ, w)</code> is a <strong>point-level</strong> closure <code>Ω → Ω</code>; the
+Moore representation theorem produces a <strong>set-level</strong> closure
+<code>P(Ω) → P(Ω)</code>. These are different types.</li>
+</ul>
+<h2>What a bridge would need</h2>
+<p>A defensible route has four explicit inputs:</p>
+<ol>
+<li>a global attribution section <code>s</code>;</li>
+<li>a scalar readout <code>bOf(s X)</code> (for the boundary tails, the logistic confidence
+coordinate);</li>
+<li>a path-monotonicity condition: <code>bOf(s X) ≤ bOf(s Y)</code> for every path <code>X → Y</code>,
+so the threshold fiber is stable under predecessors;</li>
+<li>an alignment identity: on the logistic instance, <code>bOf(s X) = b(κ, μ, X)</code>, so
+the threshold fiber is exactly the decided set of the sharpness closure.</li>
+</ol>
+<p>With these, the threshold family is a Moore chain and the closure can be
+constructed. Without them, one can still build <strong>some</strong> Moore family from <code>A</code>,
+but not the sharpness closure. Moore-ness is the easy part; the content is the
+section, the path compatibility, and the alignment.</p>
+<h2>What is not claimed</h2>
+<ul>
+<li>that every attribution presheaf induces a closure;</li>
+<li>that <code>moore_iff_exists_closure</code> identifies the sharpness closure;</li>
+<li>that the point-level and set-level closures are the same object;</li>
+<li>that the bridge has been machine-checked.</li>
+</ul>
+<p>The report-identity core is independent of this gap: it starts from a closure
+operator and proves the Moore/report results conditionally. The bridge is the
+next theoretical target.</p>
+
+</article>
+</main>
+<footer>
+  <div class="wrap">
+    <div>The Boundary Is the Report · public site · 2026-10-23</div>
+    <div>Code Apache-2.0 · documentation CC BY 4.0 · papers are preprints, not peer-reviewed.</div>
+    <div><a href="https://github.com/limisys/boundary-axiom">Repository</a> · <a href="technical.html">Technical edition</a> · <a href="https://github.com/limisys/boundary-axiom/issues">Issues</a></div>
+  </div>
+</footer>
+</body>
+</html>

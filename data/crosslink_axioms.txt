@@ -1,0 +1,6 @@
+'ChengbanVerification.kappaStar_link' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ChengbanVerification.kappaStar_scale' depends on axioms: [propext, Classical.choice, Quot.sound]
+ChengbanVerification.kappaStar_link : ∀ (α c₀ : ℝ),
+  0 < c₀ → 0 ≤ α → √(α * (Real.pi ^ 2 / 3) / c₀) = BoundaryTheory.kappaStar c₀ α
+ChengbanVerification.kappaStar_scale : ∀ (α c₀ C_F : ℝ),
+  0 < c₀ → 0 ≤ C_F → √(α * C_F / c₀) = √(C_F / (Real.pi ^ 2 / 3)) * BoundaryTheory.kappaStar c₀ α

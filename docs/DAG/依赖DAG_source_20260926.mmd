@@ -1,0 +1,169 @@
+%% 由脚本从证明体机器提取：节点 40、边 72；与真值边集逐边比对，缺 0 多 0
+flowchart TD
+  classDef defn fill:#eef3ff,stroke:#5577bb,stroke-width:1px;
+  classDef base fill:#fff8e1,stroke:#c9a227,stroke-width:1px;
+  classDef thm fill:#f3fff3,stroke:#3d8b3d,stroke-width:1px;
+  classDef star fill:#e8f0ff,stroke:#2f6fb5,stroke-width:1.5px;
+  classDef end_ fill:#ffe9e9,stroke:#c0392b,stroke-width:2px;
+  subgraph L0["第 0 层 · 七个定义"]
+    V["V"]
+    kappaStar["kappaStar"]
+    sigmaStar["sigmaStar"]
+    force["force"]
+    hbin["hbin"]
+    sig["sig"]
+    entropyDensity["entropyDensity"]
+  end
+  subgraph L1["第 1 层 · 势与力"]
+    kappaStar_s["kappaStar_sq · L43"]
+    kappaStar_b["kappaStar_balance · L51"]
+    de["deriv_V_kappaStar · L58"]
+    sigmaStar_g["sigmaStar_general · L77"]
+    sigmaStar_eq_one_["sigmaStar_eq_one_iff · L82"]
+    sigmaStar_eq_one["sigmaStar_eq_one · L95"]
+    force_["force_is_neg_gradient · L102"]
+    ene["energy_bracket_zero · L108"]
+  end
+  subgraph L2["第 2 层 · 熵与可积性"]
+    hbin_s["hbin_symm · L129"]
+    sig_n["sig_neg · L134"]
+    entropyDensity_e["entropyDensity_even · L141"]
+    sig_p["sig_pos · L148"]
+    sig_l["sig_lt_one · L152"]
+    hbin_n["hbin_nonneg · L158"]
+    entropyDensity_n["entropyDensity_nonneg · L168"]
+    neg_log_o["neg_log_one_sub_le_div · L173"]
+    neg_q["neg_q_mul_log_q_le · L185"]
+    entropyDensity_decay_["entropyDensity_decay_of_nonneg · L213"]
+    entropyDensity_decay["entropyDensity_decay · L266"]
+    entropyDensity_c["entropyDensity_continuous · L282"]
+    bo["boundary_entropy_integrable · L313"]
+  end
+  subgraph L3["第 3 层 · 值链级数侧"]
+    integral_pow_z["integral_pow_zero_one · L342"]
+    ts["tsum_inv_succ_sq_eq_pi_sq_div_six · L365"]
+    integral_pow_m["integral_pow_mul_log_zero_one · L402"]
+    neg_log_d["neg_log_div_one_sub_eq_tsum · L489"]
+    integral_n["integral_neg_log_div_one_sub_zero_one · L508"]
+  end
+  subgraph L4["第 4 层 · 值链积分侧与终点"]
+    sig_h["sig_hasDerivAt · L618"]
+    sig_c["sig_continuous · L641"]
+    tendsto_sig_atB["tendsto_sig_atBot_nhds_zero · L651"]
+    tendsto_sig_atT["tendsto_sig_atTop_nhds_one · L662"]
+    hbin_d["hbin_div_contOn · L673"]
+    entropyDensity_i["entropyDensity_integral_eq_two_mul_integral_neg_log_div · L696"]
+    C_["C_H_eq_pi_sq_div_three · L923"]
+  end
+  kappaStar --> kappaStar_s
+  kappaStar --> kappaStar_b
+  kappaStar_s --> kappaStar_b
+  V --> de
+  kappaStar --> de
+  kappaStar_s --> de
+  sigmaStar --> sigmaStar_g
+  sigmaStar --> sigmaStar_eq_one_
+  sigmaStar_g --> sigmaStar_eq_one_
+  sigmaStar --> sigmaStar_eq_one
+  sigmaStar_g --> sigmaStar_eq_one
+  force --> force_
+  force --> ene
+  hbin --> entropyDensity
+  sig --> entropyDensity
+  hbin --> hbin_s
+  sig --> sig_n
+  entropyDensity --> entropyDensity_e
+  hbin_s --> entropyDensity_e
+  sig_n --> entropyDensity_e
+  sig --> sig_p
+  sig --> sig_l
+  hbin --> hbin_n
+  entropyDensity --> entropyDensity_n
+  hbin_n --> entropyDensity_n
+  sig --> entropyDensity_n
+  sig_l --> entropyDensity_n
+  sig_p --> entropyDensity_n
+  entropyDensity --> entropyDensity_decay_
+  hbin --> entropyDensity_decay_
+  neg_log_o --> entropyDensity_decay_
+  neg_q --> entropyDensity_decay_
+  sig --> entropyDensity_decay_
+  sig_l --> entropyDensity_decay_
+  sig_p --> entropyDensity_decay_
+  entropyDensity --> entropyDensity_decay
+  entropyDensity_decay_ --> entropyDensity_decay
+  entropyDensity_e --> entropyDensity_decay
+  entropyDensity --> entropyDensity_c
+  hbin --> entropyDensity_c
+  sig --> entropyDensity_c
+  sig_l --> entropyDensity_c
+  sig_p --> entropyDensity_c
+  entropyDensity --> bo
+  entropyDensity_c --> bo
+  entropyDensity_decay_ --> bo
+  entropyDensity_e --> bo
+  entropyDensity_n --> bo
+  integral_pow_m --> integral_n
+  neg_log_d --> integral_n
+  ts --> integral_n
+  sig --> sig_h
+  sig --> sig_c
+  sig --> tendsto_sig_atB
+  sig --> tendsto_sig_atT
+  hbin --> hbin_d
+  bo --> entropyDensity_i
+  entropyDensity --> entropyDensity_i
+  hbin --> entropyDensity_i
+  hbin_d --> entropyDensity_i
+  hbin_n --> entropyDensity_i
+  sig --> entropyDensity_i
+  sig_c --> entropyDensity_i
+  sig_h --> entropyDensity_i
+  sig_l --> entropyDensity_i
+  sig_n --> entropyDensity_i
+  sig_p --> entropyDensity_i
+  tendsto_sig_atB --> entropyDensity_i
+  tendsto_sig_atT --> entropyDensity_i
+  entropyDensity --> C_
+  entropyDensity_i --> C_
+  integral_n --> C_
+  class V defn;
+  class kappaStar defn;
+  class sigmaStar defn;
+  class force defn;
+  class kappaStar_s thm;
+  class kappaStar_b thm;
+  class de star;
+  class sigmaStar_g thm;
+  class sigmaStar_eq_one_ star;
+  class sigmaStar_eq_one thm;
+  class force_ thm;
+  class ene star;
+  class hbin defn;
+  class sig defn;
+  class entropyDensity defn;
+  class hbin_s thm;
+  class sig_n thm;
+  class entropyDensity_e thm;
+  class sig_p thm;
+  class sig_l thm;
+  class hbin_n thm;
+  class entropyDensity_n thm;
+  class neg_log_o base;
+  class neg_q base;
+  class entropyDensity_decay_ thm;
+  class entropyDensity_decay thm;
+  class entropyDensity_c thm;
+  class bo star;
+  class integral_pow_z base;
+  class ts base;
+  class integral_pow_m base;
+  class neg_log_d base;
+  class integral_n thm;
+  class sig_h thm;
+  class sig_c thm;
+  class tendsto_sig_atB thm;
+  class tendsto_sig_atT thm;
+  class hbin_d thm;
+  class entropyDensity_i star;
+  class C_ end_;

@@ -1,0 +1,12 @@
+Documentation and data in this repository (`docs/`, `data/`, `paper/`) are
+licensed under the Creative Commons Attribution 4.0 International License
+(CC BY 4.0).
+
+You are free to share and adapt the material for any purpose, provided you
+give appropriate credit, link to the license, and indicate if changes were
+made.
+
+Full legal code: https://creativecommons.org/licenses/by/4.0/legalcode
+
+Code (`lean/`, `scripts/`, `vendor/`) is licensed under Apache-2.0; see
+`LICENSE`.

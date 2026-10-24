@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mind Has Boundaries: A Research Programme</title>
+<meta name="description" content="A research programme on boundary identification, representation, and maintenance; what it claims and refuses to claim.">
+<meta property="og:title" content="Mind Has Boundaries: A Research Programme">
+<meta property="og:description" content="A research programme on boundary identification, representation, and maintenance; what it claims and refuses to claim.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Boundary / Axiom">
+<meta property="og:image" content="https://limisys.github.io/boundary-axiom/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://limisys.github.io/boundary-axiom/assets/og.png">
+<link rel="stylesheet" href="assets/style.css">
+<script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true,
+    tags: 'none'
+  },
+  svg: { fontCache: 'global', mtextInheritFont: true },
+  options: {
+    enableMenu: false,
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  }
+};
+</script>
+<script defer src="assets/mathjax/tex-svg-full.js"></script>
+</head>
+<body>
+<header class="sitebar">
+  <div class="sitebar-inner">
+    <a class="brand" href="index.html">Boundary <span>/</span> Axiom</a>
+    <nav>
+      <a href="index.html">Entry</a>
+      <a href="technical.html">Technical</a>
+      <a href="evidence.html">Evidence</a>
+      <a href="open-bridge.html">Open bridge</a>
+      <a href="https://github.com/limisys/boundary-axiom">GitHub</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+<a class="back" href="index.html">← Index</a>
+<article class="paper">
+<h1>Mind Has Boundaries: A Research Programme</h1>
+<p><strong>Status:</strong> research programme, not a peer-reviewed paper. The philosophical premise is a chosen starting point; the formal and engineering claims are stated separately, with their own scope conditions.</p>
+<hr>
+<h2>The claim</h2>
+<p>The organising claim is simple enough to state in one sentence:</p>
+<blockquote>
+<p><strong>The core content of self-awareness is the capacity to identify, represent, and maintain the boundary between self and non-self.</strong></p>
+</blockquote>
+<p>This is a premise, not a theorem. It does not describe a substance, an inner theatre, or a particular biological mechanism. It names a capacity, and it makes that capacity the organising problem for a research programme. If the claim is taken seriously, the first question is not “does a system have a boundary?” Almost every system has some interface with its environment. The question is how a boundary becomes something the system itself can identify, represent, and maintain.</p>
+<p>The three verbs are not decoration. Each one imposes a constraint on the kind of system we are looking for.</p>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>The problem the system must solve</th>
+<th>What it demands</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Identify</strong></td>
+<td>What belongs to the self, and what does not?</td>
+<td>a boundary operator, not a boundary label</td>
+</tr>
+<tr>
+<td><strong>Represent</strong></td>
+<td>How is that division represented inside the system?</td>
+<td>a report family, not an external log</td>
+</tr>
+<tr>
+<td><strong>Maintain</strong></td>
+<td>How is the division preserved or revised under change?</td>
+<td>a closure, a transition rule, and an invariant</td>
+</tr>
+</tbody>
+</table>
+<p>A system may compute a boundary and print the result without satisfying any of this. The printout can be stale, corrupted, or disconnected from the state it claims to describe. That is why the programme is not about adding a reporting module. It is about the relation between the boundary and the report.</p>
+<hr>
+<h2>Why a log is not a self-report</h2>
+<p>Consider the ordinary pipeline:</p>
+<pre><code>state → compute boundary → write report → act
+</code></pre>
+<p>The report is an output. It can fail, lag, or contradict the boundary without preventing the boundary state from being used. The system still acts. The log is evidence for an observer, not a condition of the system's own organisation.</p>
+<p>The alternative is not “write a better log.” It is to make the report a constraint on what the system is allowed to commit as a valid state. The report must be part of the boundary structure, not an accessory to it. This is the point at which the programme becomes formal.</p>
+<hr>
+<h2>Four commitments</h2>
+<p>The programme can be stated as four commitments. They are ordered, but they are not independent modules; each one narrows the next.</p>
+<h3>1. Start from the boundary claim</h3>
+<p>We take the sentence above as the programme's premise. We do not begin with an arbitrary autonomous system and then try to prove that it happens to have a boundary. We begin with the claim that boundary identification, representation, and maintenance are the core of self-awareness, and we ask what kind of organisation that claim requires.</p>
+<p>This has an immediate consequence. The programme is not committed to the view that every autonomous system is organised in this way. It is committed to constructing systems in which the boundary is not an external description but an internal condition. Whether nature does this, and how often, is an empirical question, not a premise.</p>
+<h3>2. Operationalize the boundary and the report</h3>
+<p>A boundary operator is a closure operator on a state space: extensive, monotone, and idempotent. Its closed sets are the states the operator treats as already inside the boundary. The operator is not assumed; it is generated by a family of interventions, or by the system's own admissible transformations. The precise construction is a technical matter; the programme only requires that the boundary have the structure of a closure, not a label.</p>
+<p>A report family is a family of state-sets the system is willing to report as closed. It is not a single string. The runtime report is one projection of the family; the family is the system's admissible self-description.</p>
+<h3>3. Prove the conditions under which boundary and report determine each other</h3>
+<p>The central formal question is not whether a report can be attached to a boundary. It is whether the report family and the boundary operator determine each other. The answer is conditional.</p>
+<p>On the class of <strong>Moore families</strong> — families closed under arbitrary intersections — the report family and the closure operator it generates determine each other uniquely. Moreover, the report family is exactly the family of fixed points of the boundary operator. This gives two strengths of the same result:</p>
+<ul>
+<li><strong>The weak version: co-generation.</strong> Boundary and report are two presentations of one object. Neither is prior; neither can be varied independently while the other is held fixed.</li>
+<li><strong>The strong version: joint fixed point.</strong> The report family is the closed-set family of the boundary operator, no more and no less. The relation is not merely a mutual function; it is a fixed-point identity.</li>
+</ul>
+<p>The condition cannot be dropped. Outside the Moore class, a report family can fail to coincide with its own closed-set family. The failure is not a technicality; it marks the difference between a report that is part of the boundary and a report that merely accompanies it.</p>
+<p>This is the formal core of the programme. It is deliberately narrow. It does not claim that every system has a Moore report family. It claims that when a system does, the boundary and the report are not two things.</p>
+<h3>4. Compile the relation into an engineering invariant</h3>
+<p>A theorem about a relation is not yet an architecture. The fourth commitment is to make the relation impossible to bypass in the system's legal transition path.</p>
+<p>The ordinary pipeline separates boundary, report, and action. The programme replaces it with a joint transition:</p>
+<pre><code>state and input
+      ↓
+candidate bundle: boundary operator, report family, runtime report, evidence, version
+      ↓
+consistency verification
+      ↓
+atomic commit ── or reject / review
+      ↓
+action gate
+</code></pre>
+<p>The bundle is committed only if the boundary operator is a closure, the report family is a Moore family, the operator generated by the report family equals the boundary operator, the runtime report belongs to the family, and the evidence and version agree. If any check fails, there is no legal partial commit. The action gate accepts only a committed bundle.</p>
+<p>The point is not that reports matter. The point is that there is no legal path that commits a boundary without a matching report, or a report that disagrees with the boundary. The invariant is architectural, not procedural.</p>
+<hr>
+<h2>The shape of the argument</h2>
+<p>The programme can be read as a single argument with three movements.</p>
+<p><strong>First movement: the premise becomes a structure.</strong> The claim that self-awareness is boundary cognition is turned into a question about the organisation of a system: what kind of boundary operator, what kind of report family, what kind of relation between them? This is where the programme earns the right to be formal.</p>
+<p><strong>Second movement: the structure becomes a condition.</strong> The formal work identifies the condition under which boundary and report are inseparable. The condition is not a definitional stipulation. It is a property of a class of report families, and it can fail. The negative case is part of the result, not an embarrassment.</p>
+<p><strong>Third movement: the condition becomes an invariant.</strong> The engineering work turns the condition into a gate. The gate is not a monitor added from outside. It is the system's own legal path: a state is valid only when boundary, report, and evidence are committed together.</p>
+<p>The three movements are not three papers. They are three layers of one programme. The technical edition records the formal and engineering details; this programme states why they belong together.</p>
+<hr>
+<h2>What the programme does not claim</h2>
+<p>A programme is defined as much by its refusals as by its assertions. This one refuses several tempting overclaims.</p>
+<p><strong>It does not claim that the premise is proved.</strong> The sentence “the core content of self-awareness is the boundary” is a starting point, not a theorem. The formal work begins after it. Confusing the premise with a result would make the programme either circular or unfalsifiable.</p>
+<p><strong>It does not claim that every autonomous system has this structure.</strong> The argument is conditional. If a system has a Moore report family and a boundary operator of the relevant kind, then boundary and report are inseparable. Whether a given system has that structure is a separate, empirical question.</p>
+<p><strong>It does not claim that the engineering gate has been validated in production.</strong> The gate is a design with a finite-state reference implementation. It shows that the protocol can be executed and that the checks can reject incomplete objects. It does not show that a deployed agent cannot circumvent the gate.</p>
+<p><strong>It does not claim that the formal result is a theory of consciousness.</strong> The programme is functional and architectural. It is about the organisation of boundary identification, representation, and maintenance. It does not attempt to explain subjective experience.</p>
+<p>These refusals are not concessions. They are what make the programme testable. A claim that cannot fail is not a strong claim; it is a slogan.</p>
+<hr>
+<h2>What would count as progress</h2>
+<p>The programme is designed to be advanced by specific, criticisable results.</p>
+<ol>
+<li><strong>A non-trivial model of the premise.</strong> Construct a system whose report family is genuinely Moore, whose boundary operator is non-trivial, and whose runtime report is constrained by the family. Show that the relation is not vacuous.</li>
+<li><strong>A sharp negative result.</strong> Exhibit a natural report family that fails the Moore condition, and show exactly which part of the architecture breaks. The failure should be informative, not merely a counterexample.</li>
+<li><strong>A bridge from semantics to closure.</strong> The programme currently treats the attribution layer and the closure layer as separate. A genuine bridge — one that derives the boundary operator from the attribution structure, or proves that no such derivation is possible — would be a major step.</li>
+<li><strong>A gate that is neither vacuous nor unusable.</strong> On a realistic task, the gate must sometimes accept and sometimes reject. If it always accepts, it is decoration; if it always rejects, it is unusable. The acceptance and rejection rates are empirical facts about the report family's granularity.</li>
+<li><strong>A falsifiable account of the premise.</strong> The premise should generate predictions about which systems will fail to maintain a boundary under perturbation, and why. Without such predictions, the programme remains a framework rather than a research programme.</li>
+</ol>
+<hr>
+<h2>The wager</h2>
+<p>The wager is that the boundary is not a metaphor and not a label. It is a structured relation between what a system can distinguish, what it can report, and what it can commit. If that relation can be made precise, it gives us a way to talk about self-organisation without appealing to an inner observer, and a way to build systems whose reports are not decorative.</p>
+<p>The wager may fail. The formal condition may turn out to be too strong for any interesting system, or too weak to distinguish boundary cognition from ordinary control. The engineering gate may turn out to be vacuous at scale. Those are real possibilities, and the programme is written so that they can be discovered.</p>
+<p>What the programme offers is not a finished theory. It is a way of asking the question that keeps the answer honest:</p>
+<blockquote>
+<p><strong>What would a system have to be like for its boundary to be something it can identify, represent, and maintain — and how would we know if it failed?</strong></p>
+</blockquote>
+<p>That question is the programme. The rest is work.</p>
+<hr>
+<p><em>Companion technical edition: the formal statements, proof dependencies, and gate protocol are recorded separately. This programme is not a summary of that edition; it is the argument that makes the technical work worth doing.</em></p>
+
+</article>
+</main>
+<footer>
+  <div class="wrap">
+    <div>The Boundary Is the Report · public site · 2026-10-23</div>
+    <div>Code Apache-2.0 · documentation CC BY 4.0 · papers are preprints, not peer-reviewed.</div>
+    <div><a href="https://github.com/limisys/boundary-axiom">Repository</a> · <a href="technical.html">Technical edition</a> · <a href="https://github.com/limisys/boundary-axiom/issues">Issues</a></div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,160 @@
+schema: 1
+# 单一真源：论文主张 ↔ 定理/脚本 ↔ 章节
+# line: A = 边界势线；B = 有如何发生线；shared = 两线共用
+# state: formalized | verified | settled | proposed
+# theorem: 逗号分隔的 Lean 声明名（仅 formalized 需要）；file 可省略，claim_index 会在 lean/ 中查找
+claims:
+  # ---------- shared ----------
+  - id: C01
+    line: shared
+    statement: 研究问题从「有是什么」改为「有如何发生」；心智与边界是场景名/占位符。
+    state: settled
+    theorem: ""
+    paper: {A: "§1", B: "§1"}
+  - id: C02
+    line: shared
+    statement: 核 b=2σ(-|κ(x-μ)|)；闭包族 c；边界=Fix(c)，判据={b≤θ}。
+    state: settled
+    theorem: ""
+    note: 定义在 LogisticCore（b）与 SharpnessClosure（c）；不纳入 theorem 索引。
+    paper: {A: "§1", B: "§2"}
+
+  # ---------- A 线：边界势 ----------
+  - id: A1
+    line: A
+    statement: 一般 C_F 结构定律：H=C_F/κ、κ*=√(αC_F/c₀)、σ*=αC_F/C₀ 对任意单调 F 成立。
+    state: verified
+    theorem: ""
+    paper: {A: "§3"}
+    note: 解析+数值；值层仅 logistic 机检（C04）。
+  - id: A2
+    line: A
+    statement: 有效域判据修正：旧判据不充分；反例族 1−p∝1/(z ln²z) 使 C_F~ln ln L 发散；修正判据 ∫(1−p)ln(1/(1−p))<∞。
+    state: verified
+    theorem: ""
+    paper: {A: "§4"}
+    note: 渐近解析判定 + 数值佐证；未形式化。
+  - id: A3
+    line: A
+    statement: "H–σ 反平方：σ=σ₀C_H²/H²（logistic: σ₀π⁴/(9H²)）。"
+    state: settled
+    theorem: ""
+    paper: {A: "§2"}
+    note: 建模选择的代数后果。
+  - id: C04
+    line: A
+    statement: V(κ)=c₀κ+αC_F/κ 的极小点唯一 κ*=√(αC_F/c₀)，两代价同倍缩放不变。
+    state: formalized
+    theorem: "ValueLayerMin.V_global_min,ValueLayerMin.V_eq_min_iff,ValueLayerMin.amgm_eq_iff"
+    paper: {A: "§2"}
+    note: 值层用 BoundaryTheory.V（C_F=π²/3 实例）。
+  - id: C05
+    line: A
+    statement: C_H=∫h(σ(z))dz=π²/3。
+    state: formalized
+    theorem: "BoundaryTheory.C_H_eq_pi_sq_div_three"
+    paper: {A: "§5"}
+    note: 源码入仓；干净重建；公理仅 [propext, Classical.choice, Quot.sound]。
+
+  # ---------- B 线：有如何发生 ----------
+  - id: C03
+    line: B
+    statement: 接缝定理：Fix(c_{κ,μ,Lθ})={x:b_{κ,μ}(x)≤θ}。
+    state: formalized
+    theorem: "SharpnessClosure.fix_c_eq_decided,FaceIdentification.canonical_identifies,ObservableProxy.membership_is_threshold_bridge"
+    paper: {B: "§3"}
+  - id: C06
+    line: B
+    statement: 弱形式 no-go：只依赖 w 的规范不变谓词恒真或恒假，故挑不出唯一水平；水平是自由参数、值层数据定不出它。
+    state: formalized
+    theorem: "LevelSelection.gaugeInvPrinciple_notSelects,LevelSelection.selfConsistency_selects,LevelSelection.alternative_selector_selects,GaugeNoGo.level_free"
+    paper: {B: "§3"}
+    note: 不得写成「障碍是破缺规范」。
+  - id: C07
+    line: B
+    statement: 追踪读出 readout(κ,μ,w)=b(μ+w/κ)=θ(w) 且破缺规范；规范不变的单位读数对水平盲。
+    state: formalized
+    theorem: "LevelReadout.readout_eq_thetaOf,LevelReadout.readout_not_gauge_invariant,GaugeNoGo.unitRead_gaugeInv_level_blind"
+    paper: {B: "§3"}
+  - id: C08
+    line: B
+    statement: 水平可识别：Fix(c_{Lθ₁})=Fix(c_{Lθ₂}) ⇒ θ₁=θ₂。
+    state: formalized
+    theorem: "LevelReadout.level_identified_by_closure"
+    paper: {B: "§3"}
+  - id: C09
+    line: B
+    statement: 读数夹逼到 θ*=2/(1+e)：单调非降、永不越过、任意更低水平有限步被超过；对可采纳类稳健。
+    state: formalized
+    theorem: "ReadoutDynamics.level_squeeze,ReadoutDynamics.level_climbs,ReadoutDynamics.s2_readout_certificate,RelaxRobust.robustness_certificate"
+    paper: {B: "§4"}
+  - id: C10
+    line: B
+    statement: 「边界=判据」的识别存在、在水平上唯一，但不存在规范不变的识别。
+    state: formalized
+    theorem: "FaceIdentification.canonical_identifies,FaceIdentification.identified_on_levels,FaceIdentification.no_gaugeInv_identification"
+    paper: {B: "§3"}
+  - id: C11
+    line: B
+    statement: 描述层由核唯一决定：任何重现水平集的翻译 g 必等于 L。
+    state: formalized
+    theorem: "DescriptionLayer.description_layer_forced"
+    paper: {B: "§3"}
+  - id: C12
+    line: B
+    statement: 校准恒等式 L(b(μ+d/κ))=d 是唯一假设；它等价于 logistic 核；两点读数相同即可证伪。
+    state: formalized
+    theorem: "KernelCalibration.calibrated_unique,KernelCalibration.calibration_iff_logistic,CalibrationProtocol.two_point_falsifier,CalibrationProtocol.two_point_test"
+    paper: {B: "§4"}
+  - id: C13
+    line: B
+    statement: 判决逻辑：报告与维持量「同现」⟺ 两向皆无见证；四格穷尽互斥。
+    state: formalized
+    theorem: "ProtocolLogic.cooccur_iff_no_witness,ProtocolLogic.protocol_logic_certificate"
+    paper: {B: "§5"}
+  - id: C14
+    line: B
+    statement: 桥（报告=读数）可判定性：阈值桥 ⟺ 读数单调、报告为上集；严格单调满射下保持。
+    state: formalized
+    theorem: "ReportBridge.bridge_iff_monotone_finite,ProxyInvariance.bridge_mono_transform_iff"
+    paper: {B: "§5"}
+  - id: C15
+    line: B
+    statement: 形状被迫：比例性+半群性+半衰 ⇒ 几何衰减（半衰期=1）；连续半群 ⇒ 指数。
+    state: formalized
+    theorem: "ShapeForcing.proportional_decay,ShapeForcing.halving_law,ContinuousSemigroupExp.continuous_semigroup_exp"
+    paper: {B: "§4"}
+  - id: C16
+    line: B
+    statement: 维持余量非负 ⟺ 在 Fix 内且随 κ、w 单调；relax 迭代有限步进入任意 ε 邻域。
+    state: formalized
+    theorem: "MaintenanceMargin.mem_fix_iff_margin_nonneg,MaintenanceMargin.p6_static_certificate,LevelDynamics.p6_dynamics_certificate,LevelDynamics.recovery_time"
+    paper: {B: "§5"}
+  - id: C20
+    line: B
+    statement: 三闭包统一（型层）：干预闭包、芯外表态、锐度带闭包是同一生成式的三个实例；不动点=已决区。
+    state: formalized
+    theorem: "UnifiedClosure.three_instances,UnifiedClosure.fix_leastAbove,ClosureFromInterventions.equivariant_preserves"
+    paper: {B: "§3"}
+    note: 一般原理 ClosureOperator.ofCompletePred 是 Mathlib 的（已让渡）；同一层未证。
+  - id: C21
+    line: B
+    statement: 同一性（带前件）：向上封闭报告族 R 与边界算子 c_R 互相唯一决定（R=R′ ⟺ c_R=c_R′）；且 R=Fix(c_I) ⟺ c_R=c_I。非向上封闭时存在反例，故前件不可省。
+    state: formalized
+    theorem: "BoundaryReportIdentity.rep_eq_iff_closureOperator_eq,BoundaryReportIdentity.report_eq_fix_iff,ReportCountermodels.nonUpClosed_not_canonical"
+    paper: {B: "§3"}
+    note: 由统一仓从权威树并入；无条件版已被 ReportCountermodels.nonUpClosed_not_canonical 机器否定。
+
+  # ---------- 未证/待办（不进入结论） ----------
+  - id: C17
+    line: B
+    statement: 未证四项：核的来历；两条对称性为何成立；「被决」的实验判定；步↔秒映射。
+    state: proposed
+    theorem: ""
+    paper: {B: "§7"}
+  - id: C18
+    line: B
+    statement: 经验接口：两点校准核对、半衰期判据、越界/回落/停滞三条落空条件；M1 未开工。
+    state: proposed
+    theorem: ""
+    paper: {B: "§5"}

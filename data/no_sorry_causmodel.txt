@@ -1,0 +1,17 @@
+vendor/CausModel/CausModel/Attractor.lean            thm/lem=  6 def/str= 3 违规=无
+vendor/CausModel/CausModel/Attribution.lean          thm/lem=  4 def/str= 2 违规=无
+vendor/CausModel/CausModel/Boundary.lean             thm/lem=  7 def/str= 9 违规=无
+vendor/CausModel/CausModel/Caus.lean                 thm/lem=  7 def/str= 5 违规=无
+vendor/CausModel/CausModel/CoClosure.lean            thm/lem= 18 def/str= 8 违规=无
+vendor/CausModel/CausModel/Idempotent.lean           thm/lem=  3 def/str= 2 违规=无
+vendor/CausModel/CausModel/Instance.lean             thm/lem= 10 def/str= 3 违规=无
+vendor/CausModel/CausModel/KernelModuli.lean         thm/lem=  5 def/str= 5 违规=无
+vendor/CausModel/CausModel/Landau.lean               thm/lem=  5 def/str= 2 违规=无
+vendor/CausModel/CausModel/Maintenance.lean          thm/lem= 15 def/str= 7 违规=无
+vendor/CausModel/CausModel/ModelClass.lean           thm/lem=  6 def/str= 1 违规=无
+vendor/CausModel/CausModel/Orbit.lean                thm/lem= 16 def/str= 2 违规=无
+vendor/CausModel/CausModel/Probe.lean                thm/lem=  0 def/str= 0 违规=无
+vendor/CausModel/CausModel/Tradeoff.lean             thm/lem=  5 def/str= 0 违规=无
+vendor/CausModel/CausModel.lean                      thm/lem=  0 def/str= 0 违规=无
+合计                                                   thm/lem=107 def/str=49 文件=15
+0 sorry / 0 axiom —— 通过

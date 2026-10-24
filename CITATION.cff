@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this software, data, or the accompanying papers, please cite this repository."
+type: software
+title: "Boundary Programme: machine-checked boundary potential and level identification"
+abstract: >-
+  A Lean 4 development tree for the Boundary Programme. The unified audit body has
+  56 files, 467 theorems/lemmas and 90 definitions, with 0 sorry and no custom
+  axioms. It contains (A) the A-module boundary-potential evidence, including the
+  machine-checked C_H = pi^2/3 chain, and (B) the formal spine for closure fixed
+  points, level non-intrinsicality (weak form), identification, and the readout
+  bound theta* = 2/(1+e). The paper B canonical subset is 53 files / 417
+  theorems/lemmas / 77 definitions. Papers are preprints, not peer-reviewed.
+authors:
+  - family-names: "Gao"
+    given-names: "Xueqiang"
+    affiliation: "Independent researcher"
+    email: "classgao@gmail.com"
+version: 1.0.0
+date-released: "2026-10-19"
+license: Apache-2.0
+repository-code: "https://github.com/limisys/boundary-axiom"
+keywords:
+  - Lean 4
+  - formalization
+  - boundary
+  - closure operator
+  - gauge invariance
+  - Mathlib
+notes: >-
+  Code is Apache-2.0; documentation and data are CC BY 4.0. Papers are preprints,
+  not peer-reviewed. A DOI will be added after the Zenodo code archive is created.

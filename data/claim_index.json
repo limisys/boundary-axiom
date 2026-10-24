@@ -1,0 +1,359 @@
+{
+  "claims_file": "docs/claims.yaml",
+  "formalized_claims": 16,
+  "resolved": [
+    {
+      "claim": "C04",
+      "theorem": "ValueLayerMin.V_global_min",
+      "resolved": {
+        "file": "ValueLayerMin.lean",
+        "line": 125
+      }
+    },
+    {
+      "claim": "C04",
+      "theorem": "ValueLayerMin.V_eq_min_iff",
+      "resolved": {
+        "file": "ValueLayerMin.lean",
+        "line": 133
+      }
+    },
+    {
+      "claim": "C04",
+      "theorem": "ValueLayerMin.amgm_eq_iff",
+      "resolved": {
+        "file": "ValueLayerMin.lean",
+        "line": 68
+      }
+    },
+    {
+      "claim": "C05",
+      "theorem": "BoundaryTheory.C_H_eq_pi_sq_div_three",
+      "resolved": {
+        "file": "BoundaryTheory.lean",
+        "line": 923
+      }
+    },
+    {
+      "claim": "C03",
+      "theorem": "SharpnessClosure.fix_c_eq_decided",
+      "resolved": {
+        "file": "SharpnessClosure.lean",
+        "line": 165
+      }
+    },
+    {
+      "claim": "C03",
+      "theorem": "FaceIdentification.canonical_identifies",
+      "resolved": {
+        "file": "FaceIdentification.lean",
+        "line": 93
+      }
+    },
+    {
+      "claim": "C03",
+      "theorem": "ObservableProxy.membership_is_threshold_bridge",
+      "resolved": {
+        "file": "ObservableProxy.lean",
+        "line": 52
+      }
+    },
+    {
+      "claim": "C06",
+      "theorem": "LevelSelection.gaugeInvPrinciple_notSelects",
+      "resolved": {
+        "file": "LevelSelection.lean",
+        "line": 60
+      }
+    },
+    {
+      "claim": "C06",
+      "theorem": "LevelSelection.selfConsistency_selects",
+      "resolved": {
+        "file": "LevelSelection.lean",
+        "line": 78
+      }
+    },
+    {
+      "claim": "C06",
+      "theorem": "LevelSelection.alternative_selector_selects",
+      "resolved": {
+        "file": "LevelSelection.lean",
+        "line": 85
+      }
+    },
+    {
+      "claim": "C06",
+      "theorem": "GaugeNoGo.level_free",
+      "resolved": {
+        "file": "GaugeNoGo.lean",
+        "line": 74
+      }
+    },
+    {
+      "claim": "C07",
+      "theorem": "LevelReadout.readout_eq_thetaOf",
+      "resolved": {
+        "file": "LevelReadout.lean",
+        "line": 41
+      }
+    },
+    {
+      "claim": "C07",
+      "theorem": "LevelReadout.readout_not_gauge_invariant",
+      "resolved": {
+        "file": "LevelReadout.lean",
+        "line": 67
+      }
+    },
+    {
+      "claim": "C07",
+      "theorem": "GaugeNoGo.unitRead_gaugeInv_level_blind",
+      "resolved": {
+        "file": "GaugeNoGo.lean",
+        "line": 134
+      }
+    },
+    {
+      "claim": "C08",
+      "theorem": "LevelReadout.level_identified_by_closure",
+      "resolved": {
+        "file": "LevelReadout.lean",
+        "line": 86
+      }
+    },
+    {
+      "claim": "C09",
+      "theorem": "ReadoutDynamics.level_squeeze",
+      "resolved": {
+        "file": "ReadoutDynamics.lean",
+        "line": 60
+      }
+    },
+    {
+      "claim": "C09",
+      "theorem": "ReadoutDynamics.level_climbs",
+      "resolved": {
+        "file": "ReadoutDynamics.lean",
+        "line": 65
+      }
+    },
+    {
+      "claim": "C09",
+      "theorem": "ReadoutDynamics.s2_readout_certificate",
+      "resolved": {
+        "file": "ReadoutDynamics.lean",
+        "line": 87
+      }
+    },
+    {
+      "claim": "C09",
+      "theorem": "RelaxRobust.robustness_certificate",
+      "resolved": {
+        "file": "RelaxRobust.lean",
+        "line": 132
+      }
+    },
+    {
+      "claim": "C10",
+      "theorem": "FaceIdentification.canonical_identifies",
+      "resolved": {
+        "file": "FaceIdentification.lean",
+        "line": 93
+      }
+    },
+    {
+      "claim": "C10",
+      "theorem": "FaceIdentification.identified_on_levels",
+      "resolved": {
+        "file": "FaceIdentification.lean",
+        "line": 82
+      }
+    },
+    {
+      "claim": "C10",
+      "theorem": "FaceIdentification.no_gaugeInv_identification",
+      "resolved": {
+        "file": "FaceIdentification.lean",
+        "line": 104
+      }
+    },
+    {
+      "claim": "C11",
+      "theorem": "DescriptionLayer.description_layer_forced",
+      "resolved": {
+        "file": "DescriptionLayer.lean",
+        "line": 37
+      }
+    },
+    {
+      "claim": "C12",
+      "theorem": "KernelCalibration.calibrated_unique",
+      "resolved": {
+        "file": "KernelCalibration.lean",
+        "line": 54
+      }
+    },
+    {
+      "claim": "C12",
+      "theorem": "KernelCalibration.calibration_iff_logistic",
+      "resolved": {
+        "file": "KernelCalibration.lean",
+        "line": 64
+      }
+    },
+    {
+      "claim": "C12",
+      "theorem": "CalibrationProtocol.two_point_falsifier",
+      "resolved": {
+        "file": "CalibrationProtocol.lean",
+        "line": 56
+      }
+    },
+    {
+      "claim": "C12",
+      "theorem": "CalibrationProtocol.two_point_test",
+      "resolved": {
+        "file": "CalibrationProtocol.lean",
+        "line": 64
+      }
+    },
+    {
+      "claim": "C13",
+      "theorem": "ProtocolLogic.cooccur_iff_no_witness",
+      "resolved": {
+        "file": "ProtocolLogic.lean",
+        "line": 38
+      }
+    },
+    {
+      "claim": "C13",
+      "theorem": "ProtocolLogic.protocol_logic_certificate",
+      "resolved": {
+        "file": "ProtocolLogic.lean",
+        "line": 90
+      }
+    },
+    {
+      "claim": "C14",
+      "theorem": "ReportBridge.bridge_iff_monotone_finite",
+      "resolved": {
+        "file": "ReportBridge.lean",
+        "line": 59
+      }
+    },
+    {
+      "claim": "C14",
+      "theorem": "ProxyInvariance.bridge_mono_transform_iff",
+      "resolved": {
+        "file": "ProxyInvariance.lean",
+        "line": 41
+      }
+    },
+    {
+      "claim": "C15",
+      "theorem": "ShapeForcing.proportional_decay",
+      "resolved": {
+        "file": "ShapeForcing.lean",
+        "line": 31
+      }
+    },
+    {
+      "claim": "C15",
+      "theorem": "ShapeForcing.halving_law",
+      "resolved": {
+        "file": "ShapeForcing.lean",
+        "line": 69
+      }
+    },
+    {
+      "claim": "C15",
+      "theorem": "ContinuousSemigroupExp.continuous_semigroup_exp",
+      "resolved": {
+        "file": "ContinuousSemigroupExp.lean",
+        "line": 57
+      }
+    },
+    {
+      "claim": "C16",
+      "theorem": "MaintenanceMargin.mem_fix_iff_margin_nonneg",
+      "resolved": {
+        "file": "MaintenanceMargin.lean",
+        "line": 34
+      }
+    },
+    {
+      "claim": "C16",
+      "theorem": "MaintenanceMargin.p6_static_certificate",
+      "resolved": {
+        "file": "MaintenanceMargin.lean",
+        "line": 82
+      }
+    },
+    {
+      "claim": "C16",
+      "theorem": "LevelDynamics.p6_dynamics_certificate",
+      "resolved": {
+        "file": "LevelDynamics.lean",
+        "line": 164
+      }
+    },
+    {
+      "claim": "C16",
+      "theorem": "LevelDynamics.recovery_time",
+      "resolved": {
+        "file": "LevelDynamics.lean",
+        "line": 141
+      }
+    },
+    {
+      "claim": "C20",
+      "theorem": "UnifiedClosure.three_instances",
+      "resolved": {
+        "file": "UnifiedClosure.lean",
+        "line": 173
+      }
+    },
+    {
+      "claim": "C20",
+      "theorem": "UnifiedClosure.fix_leastAbove",
+      "resolved": {
+        "file": "UnifiedClosure.lean",
+        "line": 65
+      }
+    },
+    {
+      "claim": "C20",
+      "theorem": "ClosureFromInterventions.equivariant_preserves",
+      "resolved": {
+        "file": "ClosureFromInterventions.lean",
+        "line": 88
+      }
+    },
+    {
+      "claim": "C21",
+      "theorem": "BoundaryReportIdentity.rep_eq_iff_closureOperator_eq",
+      "resolved": {
+        "file": "BoundaryReportIdentity.lean",
+        "line": 152
+      }
+    },
+    {
+      "claim": "C21",
+      "theorem": "BoundaryReportIdentity.report_eq_fix_iff",
+      "resolved": {
+        "file": "BoundaryReportIdentity.lean",
+        "line": 169
+      }
+    },
+    {
+      "claim": "C21",
+      "theorem": "ReportCountermodels.nonUpClosed_not_canonical",
+      "resolved": {
+        "file": "ReportCountermodels.lean",
+        "line": 76
+      }
+    }
+  ],
+  "missing": []
+}

@@ -1,0 +1,260 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2886" height="916" viewBox="0 0 2886 916" font-family="Noto Sans CJK SC, Noto Sans CJK, DejaVu Sans, sans-serif">
+<defs><marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#6b7280"/></marker></defs>
+<rect width="2886" height="916" fill="#ffffff"/>
+<text x="40" y="42" font-size="22" font-weight="700" fill="#111827">边界理论 · 33 条声明依赖 DAG（机器提取）</text>
+<text x="40" y="66" font-size="12.5" fill="#4b5563">节点 40（33 定理/引理 + 7 定义）· 边 72 · 最大深度 5 · 基座砖 6 · 顶层结论 9（值链终点 C_H_eq_pi_sq_div_three）　｜　边集已与 Lean 源码独立复算逐边比对：缺 0 / 多 0</text>
+<text x="40" y="84" font-size="10.5" fill="#9ca3af">源: 指挥中心/33引理_形式化表达与依赖DAG_20260911.md §6.1（2026-09-12 机器提取）　渲染: DSH 2026-09-26</text>
+<rect x="30" y="96" width="2826" height="108" rx="10" fill="#fafafa" stroke="#e5e7eb"/>
+<text x="46" y="118" font-size="13" font-weight="700" fill="#374151">第 0 层 · 七个定义</text>
+<text x="2840" y="118" font-size="10.5" fill="#9ca3af" text-anchor="end">7 条</text>
+<rect x="30" y="230" width="2826" height="108" rx="10" fill="#fafafa" stroke="#e5e7eb"/>
+<text x="46" y="252" font-size="13" font-weight="700" fill="#374151">第 1 层 · 势与力</text>
+<text x="2840" y="252" font-size="10.5" fill="#9ca3af" text-anchor="end">8 条</text>
+<rect x="30" y="364" width="2826" height="108" rx="10" fill="#fafafa" stroke="#e5e7eb"/>
+<text x="46" y="386" font-size="13" font-weight="700" fill="#374151">第 2 层 · 熵与可积性</text>
+<text x="2840" y="386" font-size="10.5" fill="#9ca3af" text-anchor="end">13 条</text>
+<rect x="30" y="498" width="2826" height="108" rx="10" fill="#fafafa" stroke="#e5e7eb"/>
+<text x="46" y="520" font-size="13" font-weight="700" fill="#374151">第 3 层 · 值链级数侧</text>
+<text x="2840" y="520" font-size="10.5" fill="#9ca3af" text-anchor="end">5 条</text>
+<rect x="30" y="632" width="2826" height="108" rx="10" fill="#fafafa" stroke="#e5e7eb"/>
+<text x="46" y="654" font-size="13" font-weight="700" fill="#374151">第 4 层 · 值链积分侧与终点</text>
+<text x="2840" y="654" font-size="10.5" fill="#9ca3af" text-anchor="end">7 条</text>
+<path d="M1107.0,170.0 C1107.0,209.5 936.9,224.5 936.9,264.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1107.0,170.0 C1107.0,209.5 1115.3,224.5 1115.3,264.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M936.9,304.0 C982.9,334.0 1161.3,234.0 1115.3,264.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M939.0,170.0 C939.0,209.5 758.6,224.5 758.6,264.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1107.0,170.0 C1107.0,209.5 758.6,224.5 758.6,264.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M936.9,304.0 C982.9,334.0 804.6,234.0 758.6,264.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1275.0,170.0 C1275.0,209.5 1303.9,224.5 1303.9,264.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1275.0,170.0 C1275.0,209.5 1503.3,224.5 1503.3,264.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1303.9,304.0 C1349.9,334.0 1549.3,234.0 1503.3,264.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1275.0,170.0 C1275.0,209.5 1699.1,224.5 1699.1,264.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1303.9,304.0 C1349.9,334.0 1745.1,234.0 1699.1,264.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1443.0,170.0 C1443.0,209.5 1901.4,224.5 1901.4,264.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1443.0,170.0 C1443.0,209.5 2117.3,224.5 2117.3,264.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1611.0,170.0 C1657.0,200.0 1993.0,100.0 1947.0,130.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1779.0,170.0 C1825.0,200.0 1993.0,100.0 1947.0,130.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1611.0,170.0 C1611.0,265.8 164.8,302.2 164.8,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1779.0,170.0 C1779.0,265.8 500.8,302.2 500.8,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1947.0,170.0 C1947.0,265.8 1787.1,302.2 1787.1,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M164.8,438.0 C210.8,468.0 1833.1,368.0 1787.1,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M500.8,438.0 C546.8,468.0 1833.1,368.0 1787.1,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1779.0,170.0 C1779.0,265.8 668.8,302.2 668.8,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1779.0,170.0 C1779.0,265.8 836.8,302.2 836.8,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1611.0,170.0 C1611.0,265.8 332.8,302.2 332.8,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1947.0,170.0 C1947.0,265.8 1571.2,302.2 1571.2,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M332.8,438.0 C378.8,468.0 1617.2,368.0 1571.2,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1779.0,170.0 C1779.0,265.8 1571.2,302.2 1571.2,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M836.8,438.0 C882.8,468.0 1617.2,368.0 1571.2,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M668.8,438.0 C714.8,468.0 1617.2,368.0 1571.2,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1947.0,170.0 C1947.0,265.8 1064.4,302.2 1064.4,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1611.0,170.0 C1611.0,265.8 1064.4,302.2 1064.4,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M2488.4,438.0 C2534.4,468.0 1110.4,368.0 1064.4,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M2704.3,438.0 C2750.3,468.0 1110.4,368.0 1064.4,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1779.0,170.0 C1779.0,265.8 1064.4,302.2 1064.4,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M836.8,438.0 C882.8,468.0 1110.4,368.0 1064.4,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M668.8,438.0 C714.8,468.0 1110.4,368.0 1064.4,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1947.0,170.0 C1947.0,265.8 1999.5,302.2 1999.5,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1064.4,438.0 C1110.4,468.0 2045.5,368.0 1999.5,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1787.1,438.0 C1833.1,468.0 2045.5,368.0 1999.5,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1947.0,170.0 C1947.0,265.8 1333.8,302.2 1333.8,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1611.0,170.0 C1611.0,265.8 1333.8,302.2 1333.8,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1779.0,170.0 C1779.0,265.8 1333.8,302.2 1333.8,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M836.8,438.0 C882.8,468.0 1379.8,368.0 1333.8,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M668.8,438.0 C714.8,468.0 1379.8,368.0 1333.8,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1947.0,170.0 C1947.0,265.8 2240.4,302.2 2240.4,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1333.8,438.0 C1379.8,468.0 2286.4,368.0 2240.4,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1064.4,438.0 C1110.4,468.0 2286.4,368.0 2240.4,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1787.1,438.0 C1833.1,468.0 2286.4,368.0 2240.4,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1571.2,438.0 C1617.2,468.0 2286.4,368.0 2240.4,398.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1407.4,572.0 C1453.4,602.0 2027.8,502.0 1981.8,532.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1680.3,572.0 C1726.3,602.0 2027.8,502.0 1981.8,532.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1113.0,572.0 C1159.0,602.0 2027.8,502.0 1981.8,532.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1779.0,170.0 C1779.0,378.3 1301.9,457.7 1301.9,666.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1779.0,170.0 C1779.0,378.3 1475.1,457.7 1475.1,666.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1779.0,170.0 C1779.0,378.3 1694.6,457.7 1694.6,666.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1779.0,170.0 C1779.0,378.3 1956.9,457.7 1956.9,666.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1611.0,170.0 C1611.0,378.3 659.7,457.7 659.7,666.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M2240.4,438.0 C2240.4,533.8 982.6,570.2 982.6,666.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1947.0,170.0 C1947.0,378.3 982.6,457.7 982.6,666.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1611.0,170.0 C1611.0,378.3 982.6,457.7 982.6,666.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M659.7,706.0 C705.7,736.0 1028.6,636.0 982.6,666.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M332.8,438.0 C332.8,533.8 982.6,570.2 982.6,666.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1779.0,170.0 C1779.0,378.3 982.6,457.7 982.6,666.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1475.1,706.0 C1521.1,736.0 1028.6,636.0 982.6,666.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1301.9,706.0 C1347.9,736.0 1028.6,636.0 982.6,666.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M836.8,438.0 C836.8,533.8 982.6,570.2 982.6,666.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M500.8,438.0 C500.8,533.8 982.6,570.2 982.6,666.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M668.8,438.0 C668.8,533.8 982.6,570.2 982.6,666.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1694.6,706.0 C1740.6,736.0 1028.6,636.0 982.6,666.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1956.9,706.0 C2002.9,736.0 1028.6,636.0 982.6,666.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1947.0,170.0 C1947.0,378.3 2201.3,457.7 2201.3,666.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M982.6,706.0 C1028.6,736.0 2247.3,636.0 2201.3,666.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<path d="M1981.8,572.0 C1981.8,611.5 2201.3,626.5 2201.3,666.0" fill="none" stroke="#9ca3af" stroke-width="1.05" opacity="0.75" marker-end="url(#arw)"/>
+<rect x="864.0" y="130" width="150" height="40" rx="7" fill="#eef3ff" stroke="#5577bb" stroke-width="1.0"/>
+<text x="874.0" y="147" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">V</text>
+<text x="874.0" y="161" font-size="9" fill="#9ca3af">深度 0 · 定义层</text>
+<rect x="1032.0" y="130" width="150" height="40" rx="7" fill="#eef3ff" stroke="#5577bb" stroke-width="1.0"/>
+<text x="1042.0" y="147" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">kappaStar</text>
+<text x="1042.0" y="161" font-size="9" fill="#9ca3af">深度 0 · 定义层</text>
+<rect x="1200.0" y="130" width="150" height="40" rx="7" fill="#eef3ff" stroke="#5577bb" stroke-width="1.0"/>
+<text x="1210.0" y="147" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">sigmaStar</text>
+<text x="1210.0" y="161" font-size="9" fill="#9ca3af">深度 0 · 定义层</text>
+<rect x="1368.0" y="130" width="150" height="40" rx="7" fill="#eef3ff" stroke="#5577bb" stroke-width="1.0"/>
+<text x="1378.0" y="147" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">force</text>
+<text x="1378.0" y="161" font-size="9" fill="#9ca3af">深度 0 · 定义层</text>
+<rect x="1536.0" y="130" width="150" height="40" rx="7" fill="#eef3ff" stroke="#5577bb" stroke-width="1.0"/>
+<text x="1546.0" y="147" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">hbin</text>
+<text x="1546.0" y="161" font-size="9" fill="#9ca3af">深度 0 · 定义层</text>
+<rect x="1704.0" y="130" width="150" height="40" rx="7" fill="#eef3ff" stroke="#5577bb" stroke-width="1.0"/>
+<text x="1714.0" y="147" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">sig</text>
+<text x="1714.0" y="161" font-size="9" fill="#9ca3af">深度 0 · 定义层</text>
+<rect x="1872.0" y="130" width="150" height="40" rx="7" fill="#eef3ff" stroke="#5577bb" stroke-width="1.0"/>
+<text x="1882.0" y="147" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">entropyDensity</text>
+<text x="1882.0" y="161" font-size="9" fill="#9ca3af">深度 1 · 定义层</text>
+<rect x="861.9" y="264" width="150" height="40" rx="7" fill="#f3fff3" stroke="#3d8b3d" stroke-width="1.0"/>
+<text x="871.9" y="281" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">kappaStar_sq</text>
+<text x="1001.9" y="281" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L43</text>
+<text x="871.9" y="295" font-size="9" fill="#9ca3af">深度 1</text>
+<rect x="1029.9" y="264" width="170.66" height="40" rx="7" fill="#f3fff3" stroke="#3d8b3d" stroke-width="1.0"/>
+<text x="1039.9" y="281" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">kappaStar_balance</text>
+<text x="1190.6" y="281" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L51</text>
+<text x="1039.9" y="295" font-size="9" fill="#9ca3af">深度 2 · 顶层结论</text>
+<rect x="673.3" y="264" width="170.66" height="40" rx="7" fill="#e8f0ff" stroke="#2f6fb5" stroke-width="1.5"/>
+<text x="683.3" y="281" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">deriv_V_kappaStar</text>
+<text x="833.9" y="281" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L58</text>
+<text x="683.3" y="295" font-size="9" fill="#9ca3af">深度 2 · 顶层结论</text>
+<rect x="1218.6" y="264" width="170.66" height="40" rx="7" fill="#f3fff3" stroke="#3d8b3d" stroke-width="1.0"/>
+<text x="1228.6" y="281" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">sigmaStar_general</text>
+<text x="1379.3" y="281" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L77</text>
+<text x="1228.6" y="295" font-size="9" fill="#9ca3af">深度 1</text>
+<rect x="1407.3" y="264" width="192.04999999999998" height="40" rx="7" fill="#e8f0ff" stroke="#2f6fb5" stroke-width="1.5"/>
+<text x="1417.3" y="281" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">sigmaStar_eq_one_iff</text>
+<text x="1589.3" y="281" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L82</text>
+<text x="1417.3" y="295" font-size="9" fill="#9ca3af">深度 2 · 顶层结论</text>
+<rect x="1617.3" y="264" width="163.53" height="40" rx="7" fill="#f3fff3" stroke="#3d8b3d" stroke-width="1.0"/>
+<text x="1627.3" y="281" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">sigmaStar_eq_one</text>
+<text x="1770.8" y="281" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L95</text>
+<text x="1627.3" y="295" font-size="9" fill="#9ca3af">深度 2 · 顶层结论</text>
+<rect x="1798.8" y="264" width="205.07" height="40" rx="7" fill="#f3fff3" stroke="#3d8b3d" stroke-width="1.0"/>
+<text x="1808.8" y="281" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">force_is_neg_gradient</text>
+<text x="1993.9" y="281" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L102</text>
+<text x="1808.8" y="295" font-size="9" fill="#9ca3af">深度 1 · 顶层结论</text>
+<rect x="2021.9" y="264" width="190.81" height="40" rx="7" fill="#e8f0ff" stroke="#2f6fb5" stroke-width="1.5"/>
+<text x="2031.9" y="281" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">energy_bracket_zero</text>
+<text x="2202.7" y="281" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L108</text>
+<text x="2031.9" y="295" font-size="9" fill="#9ca3af">深度 1 · 顶层结论</text>
+<rect x="89.8" y="398" width="150" height="40" rx="7" fill="#f3fff3" stroke="#3d8b3d" stroke-width="1.0"/>
+<text x="99.8" y="415" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">hbin_symm</text>
+<text x="229.8" y="415" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L129</text>
+<text x="99.8" y="429" font-size="9" fill="#9ca3af">深度 1</text>
+<rect x="425.8" y="398" width="150" height="40" rx="7" fill="#f3fff3" stroke="#3d8b3d" stroke-width="1.0"/>
+<text x="435.8" y="415" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">sig_neg</text>
+<text x="565.8" y="415" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L134</text>
+<text x="435.8" y="429" font-size="9" fill="#9ca3af">深度 1</text>
+<rect x="1691.7" y="398" width="190.81" height="40" rx="7" fill="#f3fff3" stroke="#3d8b3d" stroke-width="1.0"/>
+<text x="1701.7" y="415" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">entropyDensity_even</text>
+<text x="1872.5" y="415" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L141</text>
+<text x="1701.7" y="429" font-size="9" fill="#9ca3af">深度 2</text>
+<rect x="593.8" y="398" width="150" height="40" rx="7" fill="#f3fff3" stroke="#3d8b3d" stroke-width="1.0"/>
+<text x="603.8" y="415" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">sig_pos</text>
+<text x="733.8" y="415" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L148</text>
+<text x="603.8" y="429" font-size="9" fill="#9ca3af">深度 1</text>
+<rect x="761.8" y="398" width="150" height="40" rx="7" fill="#f3fff3" stroke="#3d8b3d" stroke-width="1.0"/>
+<text x="771.8" y="415" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">sig_lt_one</text>
+<text x="901.8" y="415" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L152</text>
+<text x="771.8" y="429" font-size="9" fill="#9ca3af">深度 1</text>
+<rect x="257.8" y="398" width="150" height="40" rx="7" fill="#f3fff3" stroke="#3d8b3d" stroke-width="1.0"/>
+<text x="267.8" y="415" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">hbin_nonneg</text>
+<text x="397.8" y="415" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L158</text>
+<text x="267.8" y="429" font-size="9" fill="#9ca3af">深度 1</text>
+<rect x="1468.6" y="398" width="205.07" height="40" rx="7" fill="#f3fff3" stroke="#3d8b3d" stroke-width="1.0"/>
+<text x="1478.6" y="415" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">entropyDensity_nonneg</text>
+<text x="1663.7" y="415" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L168</text>
+<text x="1478.6" y="429" font-size="9" fill="#9ca3af">深度 2</text>
+<rect x="2382.3" y="398" width="212.2" height="40" rx="7" fill="#fff8e1" stroke="#c9a227" stroke-width="1.0"/>
+<text x="2392.3" y="415" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">neg_log_one_sub_le_div</text>
+<text x="2584.5" y="415" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L173</text>
+<text x="2392.3" y="429" font-size="9" fill="#9ca3af">深度 0 · 基座砖</text>
+<rect x="2612.5" y="398" width="183.68" height="40" rx="7" fill="#fff8e1" stroke="#c9a227" stroke-width="1.0"/>
+<text x="2622.5" y="415" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">neg_q_mul_log_q_le</text>
+<text x="2786.2" y="415" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L185</text>
+<text x="2622.5" y="429" font-size="9" fill="#9ca3af">深度 0 · 基座砖</text>
+<rect x="929.8" y="398" width="269.24" height="40" rx="7" fill="#f3fff3" stroke="#3d8b3d" stroke-width="1.0"/>
+<text x="939.8" y="415" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">entropyDensity_decay_of_nonneg</text>
+<text x="1189.0" y="415" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L213</text>
+<text x="939.8" y="429" font-size="9" fill="#9ca3af">深度 2</text>
+<rect x="1900.5" y="398" width="197.94" height="40" rx="7" fill="#f3fff3" stroke="#3d8b3d" stroke-width="1.0"/>
+<text x="1910.5" y="415" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">entropyDensity_decay</text>
+<text x="2088.5" y="415" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L266</text>
+<text x="1910.5" y="429" font-size="9" fill="#9ca3af">深度 3 · 顶层结论</text>
+<rect x="1217.0" y="398" width="233.59" height="40" rx="7" fill="#f3fff3" stroke="#3d8b3d" stroke-width="1.0"/>
+<text x="1227.0" y="415" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">entropyDensity_continuous</text>
+<text x="1440.6" y="415" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L282</text>
+<text x="1227.0" y="429" font-size="9" fill="#9ca3af">深度 2</text>
+<rect x="2116.5" y="398" width="247.85" height="40" rx="7" fill="#e8f0ff" stroke="#2f6fb5" stroke-width="1.5"/>
+<text x="2126.5" y="415" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">boundary_entropy_integrable</text>
+<text x="2354.3" y="415" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L313</text>
+<text x="2126.5" y="429" font-size="9" fill="#9ca3af">深度 3</text>
+<rect x="744.6" y="532" width="205.07" height="40" rx="7" fill="#fff8e1" stroke="#c9a227" stroke-width="1.0"/>
+<text x="754.6" y="549" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">integral_pow_zero_one</text>
+<text x="939.7" y="549" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L342</text>
+<text x="754.6" y="563" font-size="9" fill="#9ca3af">深度 0 · 基座砖</text>
+<rect x="967.7" y="532" width="290.63" height="40" rx="7" fill="#fff8e1" stroke="#c9a227" stroke-width="1.0"/>
+<text x="977.7" y="549" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">tsum_inv_succ_sq_eq_pi_sq_div_six</text>
+<text x="1248.3" y="549" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L365</text>
+<text x="977.7" y="563" font-size="9" fill="#9ca3af">深度 0 · 基座砖</text>
+<rect x="1276.3" y="532" width="262.11" height="40" rx="7" fill="#fff8e1" stroke="#c9a227" stroke-width="1.0"/>
+<text x="1286.3" y="549" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">integral_pow_mul_log_zero_one</text>
+<text x="1528.4" y="549" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L402</text>
+<text x="1286.3" y="563" font-size="9" fill="#9ca3af">深度 0 · 基座砖</text>
+<rect x="1556.4" y="532" width="247.85" height="40" rx="7" fill="#fff8e1" stroke="#c9a227" stroke-width="1.0"/>
+<text x="1566.4" y="549" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">neg_log_div_one_sub_eq_tsum</text>
+<text x="1794.3" y="549" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L489</text>
+<text x="1566.4" y="563" font-size="9" fill="#9ca3af">深度 0 · 基座砖</text>
+<rect x="1822.3" y="532" width="319.15" height="40" rx="7" fill="#f3fff3" stroke="#3d8b3d" stroke-width="1.0"/>
+<text x="1832.3" y="549" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">integral_neg_log_div_one_sub_zero_one</text>
+<text x="2131.4" y="549" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L508</text>
+<text x="1832.3" y="563" font-size="9" fill="#9ca3af">深度 1</text>
+<rect x="1224.3" y="666" width="155.16" height="40" rx="7" fill="#f3fff3" stroke="#3d8b3d" stroke-width="1.0"/>
+<text x="1234.3" y="683" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">sig_hasDerivAt</text>
+<text x="1369.5" y="683" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L618</text>
+<text x="1234.3" y="697" font-size="9" fill="#9ca3af">深度 1</text>
+<rect x="1397.5" y="666" width="155.16" height="40" rx="7" fill="#f3fff3" stroke="#3d8b3d" stroke-width="1.0"/>
+<text x="1407.5" y="683" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">sig_continuous</text>
+<text x="1542.7" y="683" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L641</text>
+<text x="1407.5" y="697" font-size="9" fill="#9ca3af">深度 1</text>
+<rect x="1570.7" y="666" width="247.85" height="40" rx="7" fill="#f3fff3" stroke="#3d8b3d" stroke-width="1.0"/>
+<text x="1580.7" y="683" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">tendsto_sig_atBot_nhds_zero</text>
+<text x="1808.5" y="683" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L651</text>
+<text x="1580.7" y="697" font-size="9" fill="#9ca3af">深度 1</text>
+<rect x="1836.5" y="666" width="240.72" height="40" rx="7" fill="#f3fff3" stroke="#3d8b3d" stroke-width="1.0"/>
+<text x="1846.5" y="683" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">tendsto_sig_atTop_nhds_one</text>
+<text x="2067.2" y="683" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L662</text>
+<text x="1846.5" y="697" font-size="9" fill="#9ca3af">深度 1</text>
+<rect x="578.6" y="666" width="162.29" height="40" rx="7" fill="#f3fff3" stroke="#3d8b3d" stroke-width="1.0"/>
+<text x="588.6" y="683" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">hbin_div_contOn</text>
+<text x="730.9" y="683" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L673</text>
+<text x="588.6" y="697" font-size="9" fill="#9ca3af">深度 1</text>
+<rect x="758.9" y="666" width="447.48999999999995" height="40" rx="7" fill="#e8f0ff" stroke="#2f6fb5" stroke-width="1.5"/>
+<text x="768.9" y="683" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">entropyDensity_integral_eq_two_mul_integral_neg_log_div</text>
+<text x="1196.3" y="683" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L696</text>
+<text x="768.9" y="697" font-size="9" fill="#9ca3af">深度 4</text>
+<rect x="2095.2" y="666" width="212.2" height="40" rx="7" fill="#ffe9e9" stroke="#c0392b" stroke-width="2.0"/>
+<text x="2105.2" y="683" font-size="11.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#111827">C_H_eq_pi_sq_div_three</text>
+<text x="2297.4" y="683" font-size="9.5" font-family="DejaVu Sans Mono, Menlo, monospace" fill="#9ca3af" text-anchor="end">L923</text>
+<text x="2105.2" y="697" font-size="9" fill="#9ca3af">深度 5 · 值链终点</text>
+<text x="40" y="820" font-size="12" font-weight="700" fill="#374151">图例</text>
+<rect x="92" y="809" width="16" height="13" rx="3" fill="#eef3ff" stroke="#5577bb" stroke-width="1.0"/>
+<text x="114" y="820" font-size="11" fill="#4b5563">定义（第 0 层 · 7 个）</text>
+<rect x="236.4" y="809" width="16" height="13" rx="3" fill="#fff8e1" stroke="#c9a227" stroke-width="1.0"/>
+<text x="258.4" y="820" font-size="11" fill="#4b5563">基座砖（入度 0 · 初等事实）</text>
+<rect x="386.96000000000004" y="809" width="16" height="13" rx="3" fill="#f3fff3" stroke="#3d8b3d" stroke-width="1.0"/>
+<text x="408.96000000000004" y="820" font-size="11" fill="#4b5563">定理/引理</text>
+<rect x="469.76000000000005" y="809" width="16" height="13" rx="3" fill="#e8f0ff" stroke="#2f6fb5" stroke-width="1.5"/>
+<text x="491.76000000000005" y="820" font-size="11" fill="#4b5563">关键结构节点</text>
+<rect x="558.72" y="809" width="16" height="13" rx="3" fill="#ffe9e9" stroke="#c0392b" stroke-width="2.0"/>
+<text x="580.72" y="820" font-size="11" fill="#4b5563">值链终点 C_H = π²/3</text>
+<text x="40" y="858" font-size="10.5" fill="#9ca3af">边方向 = 支持流：A → B 表示 B 的证明体引用了 A（依赖在上游、结论在下游）。带内为作者原有 5 层语义分组，节点上的「深度」为最长路径层级（机器计算）。</text>
+<text x="40" y="876" font-size="10.5" fill="#9ca3af">复算比对：Lean 复算边 72 条 · Mermaid 边(实名) 72 条 · 缺 0 / 多 0　｜　source.mmd sha256 1b353abd75fada06…</text>
+</svg>

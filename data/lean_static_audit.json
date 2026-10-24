@@ -1,0 +1,345 @@
+{
+  "root": "lean",
+  "files": 56,
+  "thm_lem": 467,
+  "def": 90,
+  "violations": [],
+  "rows": [
+    {
+      "file": "BoundaryBridge_layers.lean",
+      "theorem_or_lemma": 17,
+      "def_or_struct": 2,
+      "violations": []
+    },
+    {
+      "file": "BoundaryProgramme.lean",
+      "theorem_or_lemma": 0,
+      "def_or_struct": 0,
+      "violations": []
+    },
+    {
+      "file": "BoundaryReportIdentity.lean",
+      "theorem_or_lemma": 13,
+      "def_or_struct": 5,
+      "violations": []
+    },
+    {
+      "file": "BoundaryTheory.lean",
+      "theorem_or_lemma": 33,
+      "def_or_struct": 7,
+      "violations": []
+    },
+    {
+      "file": "BoundaryTheory_sigmaCoh.lean",
+      "theorem_or_lemma": 9,
+      "def_or_struct": 3,
+      "violations": []
+    },
+    {
+      "file": "BridgeCaliberMenu.lean",
+      "theorem_or_lemma": 13,
+      "def_or_struct": 2,
+      "violations": []
+    },
+    {
+      "file": "CalibrationProtocol.lean",
+      "theorem_or_lemma": 5,
+      "def_or_struct": 0,
+      "violations": []
+    },
+    {
+      "file": "CategoricalDictionary.lean",
+      "theorem_or_lemma": 5,
+      "def_or_struct": 1,
+      "violations": []
+    },
+    {
+      "file": "ClosureFromInterventions.lean",
+      "theorem_or_lemma": 13,
+      "def_or_struct": 4,
+      "violations": []
+    },
+    {
+      "file": "ClosureGauge.lean",
+      "theorem_or_lemma": 4,
+      "def_or_struct": 0,
+      "violations": []
+    },
+    {
+      "file": "CommitAdjunction.lean",
+      "theorem_or_lemma": 10,
+      "def_or_struct": 3,
+      "violations": []
+    },
+    {
+      "file": "ComparabilityMatters.lean",
+      "theorem_or_lemma": 6,
+      "def_or_struct": 2,
+      "violations": []
+    },
+    {
+      "file": "ContinuousRelaxation.lean",
+      "theorem_or_lemma": 8,
+      "def_or_struct": 1,
+      "violations": []
+    },
+    {
+      "file": "ContinuousSemigroupExp.lean",
+      "theorem_or_lemma": 4,
+      "def_or_struct": 0,
+      "violations": []
+    },
+    {
+      "file": "ContrastExamples.lean",
+      "theorem_or_lemma": 5,
+      "def_or_struct": 0,
+      "violations": []
+    },
+    {
+      "file": "CoreConstantSpectrum.lean",
+      "theorem_or_lemma": 17,
+      "def_or_struct": 2,
+      "violations": []
+    },
+    {
+      "file": "DescriptionLayer.lean",
+      "theorem_or_lemma": 4,
+      "def_or_struct": 0,
+      "violations": []
+    },
+    {
+      "file": "DimensionAlgebra.lean",
+      "theorem_or_lemma": 9,
+      "def_or_struct": 9,
+      "violations": []
+    },
+    {
+      "file": "FaceIdentification.lean",
+      "theorem_or_lemma": 6,
+      "def_or_struct": 1,
+      "violations": []
+    },
+    {
+      "file": "Falsifiers.lean",
+      "theorem_or_lemma": 9,
+      "def_or_struct": 0,
+      "violations": []
+    },
+    {
+      "file": "FieldClosure.lean",
+      "theorem_or_lemma": 13,
+      "def_or_struct": 2,
+      "violations": []
+    },
+    {
+      "file": "GaugeNoGo.lean",
+      "theorem_or_lemma": 8,
+      "def_or_struct": 1,
+      "violations": []
+    },
+    {
+      "file": "KernelCalibration.lean",
+      "theorem_or_lemma": 5,
+      "def_or_struct": 0,
+      "violations": []
+    },
+    {
+      "file": "LanguageInterventions.lean",
+      "theorem_or_lemma": 4,
+      "def_or_struct": 0,
+      "violations": []
+    },
+    {
+      "file": "LanguageStrict.lean",
+      "theorem_or_lemma": 5,
+      "def_or_struct": 1,
+      "violations": []
+    },
+    {
+      "file": "LevelDynamics.lean",
+      "theorem_or_lemma": 9,
+      "def_or_struct": 1,
+      "violations": []
+    },
+    {
+      "file": "LevelReadout.lean",
+      "theorem_or_lemma": 7,
+      "def_or_struct": 1,
+      "violations": []
+    },
+    {
+      "file": "LevelSelection.lean",
+      "theorem_or_lemma": 7,
+      "def_or_struct": 2,
+      "violations": []
+    },
+    {
+      "file": "LocusVsBoundary.lean",
+      "theorem_or_lemma": 12,
+      "def_or_struct": 4,
+      "violations": []
+    },
+    {
+      "file": "LogisticCore.lean",
+      "theorem_or_lemma": 16,
+      "def_or_struct": 3,
+      "violations": []
+    },
+    {
+      "file": "MaintenanceMargin.lean",
+      "theorem_or_lemma": 5,
+      "def_or_struct": 1,
+      "violations": []
+    },
+    {
+      "file": "MeasurableProtocol.lean",
+      "theorem_or_lemma": 3,
+      "def_or_struct": 0,
+      "violations": []
+    },
+    {
+      "file": "ObservableProxy.lean",
+      "theorem_or_lemma": 6,
+      "def_or_struct": 0,
+      "violations": []
+    },
+    {
+      "file": "OrbitInvariantRow.lean",
+      "theorem_or_lemma": 4,
+      "def_or_struct": 1,
+      "violations": []
+    },
+    {
+      "file": "PolarityChange.lean",
+      "theorem_or_lemma": 7,
+      "def_or_struct": 0,
+      "violations": []
+    },
+    {
+      "file": "ProgrammeSpine.lean",
+      "theorem_or_lemma": 1,
+      "def_or_struct": 0,
+      "violations": []
+    },
+    {
+      "file": "ProgrammeSpineFull.lean",
+      "theorem_or_lemma": 1,
+      "def_or_struct": 0,
+      "violations": []
+    },
+    {
+      "file": "ProtocolLogic.lean",
+      "theorem_or_lemma": 8,
+      "def_or_struct": 3,
+      "violations": []
+    },
+    {
+      "file": "ProxyInvariance.lean",
+      "theorem_or_lemma": 5,
+      "def_or_struct": 0,
+      "violations": []
+    },
+    {
+      "file": "ReadoutDynamics.lean",
+      "theorem_or_lemma": 7,
+      "def_or_struct": 0,
+      "violations": []
+    },
+    {
+      "file": "ReadoutExistence.lean",
+      "theorem_or_lemma": 18,
+      "def_or_struct": 4,
+      "violations": []
+    },
+    {
+      "file": "RelaxRobust.lean",
+      "theorem_or_lemma": 9,
+      "def_or_struct": 1,
+      "violations": []
+    },
+    {
+      "file": "ReportBridge.lean",
+      "theorem_or_lemma": 4,
+      "def_or_struct": 1,
+      "violations": []
+    },
+    {
+      "file": "ReportCountermodels.lean",
+      "theorem_or_lemma": 4,
+      "def_or_struct": 1,
+      "violations": []
+    },
+    {
+      "file": "RescalingEquivariance.lean",
+      "theorem_or_lemma": 9,
+      "def_or_struct": 3,
+      "violations": []
+    },
+    {
+      "file": "ScalingsAndUnits.lean",
+      "theorem_or_lemma": 6,
+      "def_or_struct": 0,
+      "violations": []
+    },
+    {
+      "file": "SelfReferenceLevel.lean",
+      "theorem_or_lemma": 3,
+      "def_or_struct": 0,
+      "violations": []
+    },
+    {
+      "file": "ShapeForcing.lean",
+      "theorem_or_lemma": 5,
+      "def_or_struct": 0,
+      "violations": []
+    },
+    {
+      "file": "SharpnessClosure.lean",
+      "theorem_or_lemma": 11,
+      "def_or_struct": 1,
+      "violations": []
+    },
+    {
+      "file": "ThreeComponent.lean",
+      "theorem_or_lemma": 11,
+      "def_or_struct": 5,
+      "violations": []
+    },
+    {
+      "file": "TimeScaleInvariance.lean",
+      "theorem_or_lemma": 6,
+      "def_or_struct": 1,
+      "violations": []
+    },
+    {
+      "file": "TwoFacesBridge.lean",
+      "theorem_or_lemma": 13,
+      "def_or_struct": 3,
+      "violations": []
+    },
+    {
+      "file": "UnifiedClosure.lean",
+      "theorem_or_lemma": 16,
+      "def_or_struct": 5,
+      "violations": []
+    },
+    {
+      "file": "UnitReading.lean",
+      "theorem_or_lemma": 6,
+      "def_or_struct": 1,
+      "violations": []
+    },
+    {
+      "file": "ValueLayerExtension.lean",
+      "theorem_or_lemma": 9,
+      "def_or_struct": 1,
+      "violations": []
+    },
+    {
+      "file": "ValueLayerMin.lean",
+      "theorem_or_lemma": 14,
+      "def_or_struct": 1,
+      "violations": []
+    }
+  ]
+}
