@@ -1,0 +1,41 @@
+{
+  "title": "Boundary Programme: machine-checked boundary potential and level identification",
+  "upload_type": "software",
+  "version": "1.1.1",
+  "publication_date": "2026-10-25",
+  "access_right": "open",
+  "license": "Apache-2.0",
+  "language": "eng",
+  "creators": [
+    {
+      "name": "Gao, Xueqiang",
+      "affiliation": "Independent researcher",
+      "orcid": "0009-0008-3821-3454"
+    }
+  ],
+  "keywords": [
+    "Lean 4",
+    "formalization",
+    "boundary",
+    "closure operator",
+    "gauge invariance",
+    "Mathlib",
+    "cognition"
+  ],
+  "description": "<p>Lean 4 development tree for the Boundary Programme (research programme: <em>The Mind Has a Boundary</em>). The unified audit body comprises 56 files, 467 theorems/lemmas and 90 definitions, with 0 <code>sorry</code> and no custom axioms.</p><p>Contents: (A) the A-module boundary-potential evidence, including the machine-checked C_H = pi^2/3 chain; and (B) the formal spine for closure fixed points, level non-intrinsicality (weak form), identification, and the readout bound theta* = 2/(1+e). The Paper B canonical subset is 53 files / 417 theorems/lemmas / 77 definitions.</p><p>The accompanying papers are preprints and have not been peer reviewed. This deposit archives the source tree at tag v1.1.1; it is not a venue for the papers.</p>",
+  "notes": "Code is Apache-2.0; documentation and data are CC BY 4.0. Papers are preprints, not peer-reviewed. A separate genesis record anchors the standalone release package at the v1.1.0 commit with two independent timestamps (OpenTimestamps/Bitcoin and RFC 3161). That record covers the package bytes and the tree manifest, not this Zenodo archive: the two digest layers are independent and do not cross-certify each other.",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/limisys/boundary-axiom/blob/f01cf6f7dffd65b0d835e0139912d66dc734c4d7/genesis/GENESIS.json",
+      "relation": "references",
+      "resource_type": "other",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://github.com/limisys/boundary-axiom/tree/v1.1.0",
+      "relation": "isNewVersionOf",
+      "resource_type": "software",
+      "scheme": "url"
+    }
+  ]
+}

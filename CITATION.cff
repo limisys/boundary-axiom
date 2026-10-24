@@ -15,8 +15,9 @@ authors:
     given-names: "Xueqiang"
     affiliation: "Independent researcher"
     email: "classgao@gmail.com"
-version: 1.0.0
-date-released: "2026-10-19"
+    orcid: "https://orcid.org/0009-0008-3821-3454"
+version: 1.1.1
+date-released: "2026-10-25"
 license: Apache-2.0
 repository-code: "https://github.com/limisys/boundary-axiom"
 keywords:
