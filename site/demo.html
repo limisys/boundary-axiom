@@ -43,6 +43,8 @@ svg.graph{display:block;width:100%;height:auto;touch-action:manipulation;}
 .edge-hit{stroke:transparent;stroke-width:16;cursor:pointer;}
 .edge-line{stroke:var(--line-strong);stroke-width:1.6;fill:none;transition:stroke .18s,stroke-width .18s;}
 .edge-group:hover .edge-line{stroke:var(--accent-dim);stroke-width:2.4;}
+.edge-line.ghost{stroke:var(--line);stroke-width:1;stroke-dasharray:3 7;opacity:.6;}
+.edge-group:hover .edge-line.ghost{stroke:var(--accent-dim);stroke-dasharray:none;opacity:1;}
 .node{cursor:pointer;}
 .node circle.body{fill:#12161b;stroke:var(--line-strong);stroke-width:1.6;transition:fill .22s,stroke .22s;}
 .node text{font-family:var(--mono);font-size:13px;fill:var(--faint);text-anchor:middle;dominant-baseline:central;pointer-events:none;transition:fill .22s;}
@@ -324,6 +326,8 @@ var NAME = ["a", "b", "c", "d", "e", "f"];
 var POS = [[200,52],[308,120],[308,250],[200,318],[92,250],[92,120]];
 var EDGES_DEFAULT = [[0,1],[1,2],[2,0],[3,0],[4,5]];
 var EDGES_FRAG = [[0,1],[1,2],[2,0],[3,0],[4,5],[5,4]];
+/* every edge the UI can switch: a removed one stays on screen as a clickable ghost */
+var EDGES_KNOWN = EDGES_FRAG.slice();
 
 var st = {
   edges: EDGES_DEFAULT.map(function (e) { return e.slice(); }),
@@ -532,8 +536,13 @@ function renderGraph(report, inClosure) {
 
   var i, u, v, p1, p2, dx, dy, len, ux, uy, x1, y1, x2, y2, bidir, mx, my;
 
-  for (i = 0; i < st.edges.length; i++) {
-    u = st.edges[i][0]; v = st.edges[i][1];
+  /* Every switchable edge stays rendered: active edges solid, removed ones as a faint
+     dashed ghost that keeps its own hit area. Deleting an edge used to delete the very
+     line you would click to bring it back, which made the toggle one-way. */
+  for (i = 0; i < EDGES_KNOWN.length; i++) {
+    u = EDGES_KNOWN[i][0]; v = EDGES_KNOWN[i][1];
+    var active = edgeExists(u, v);
+
     p1 = POS[u]; p2 = POS[v];
     dx = p2[0] - p1[0]; dy = p2[1] - p1[1];
     len = Math.sqrt(dx * dx + dy * dy) || 1;
@@ -541,12 +550,17 @@ function renderGraph(report, inClosure) {
     x1 = p1[0] + ux * 21; y1 = p1[1] + uy * 21;
     x2 = p2[0] - ux * 25; y2 = p2[1] - uy * 25;
 
+    /* both directions present: nudge them apart so neither hit area covers the other */
+    bidir = edgeExists(v, u);
+    var off = bidir ? 3 : 0, ox = -uy * off, oy = ux * off;
+
     var g = mk("g", { "class": "edge-group" });
-    var hit = mk("line", { "class": "edge-hit", x1: x1, y1: y1, x2: x2, y2: y2 });
+    var hit = mk("line", { "class": "edge-hit", x1: x1 + ox, y1: y1 + oy, x2: x2 + ox, y2: y2 + oy });
     var line;
 
-    bidir = edgeExists(v, u);
-    if (bidir) {
+    if (!active) {
+      line = mk("line", { "class": "edge-line ghost", x1: x1 + ox, y1: y1 + oy, x2: x2 + ox, y2: y2 + oy });
+    } else if (bidir) {
       mx = (x1 + x2) / 2 - uy * 12;
       my = (y1 + y2) / 2 + ux * 12;
       line = mk("path", { "class": "edge-line", d: "M " + x1 + " " + y1 + " Q " + mx + " " + my + " " + x2 + " " + y2,
