@@ -130,3 +130,17 @@ bash scripts/ci_check.sh
 3. **Z3 未跑**：默认九步不含 Z3；主链证据以 Lean ＋ 公理检查为准。
 4. **历史文档**：`docs/rounds/` 的计数/路径是当时口径；不进入公开树。
 5. **验证后改动**：本记录生成后，发布工程只改了 README/STATUS/scripts 的文字与路径；Lean 源件、定理与验证结果未变。
+
+## Manifest scopes
+
+Two manifests are published and they cover different trees:
+
+- `MANIFEST.public.sha256` — 183 entries, frozen for the packaged tree at `f01cf6f`. Its SHA-256 is
+  `1fb0301132e66edfd20d0286691db0f78d2a83e9029ee5fd35cf77fdb45fa59c`, the value bound in
+  `genesis/GENESIS.json`. Verify it inside the extracted package directory only.
+- `MANIFEST.attestation.sha256` — the current repository worktree, including `genesis/`, `ots/`,
+  `release/` and page-metadata updates. Verify it at the repository root.
+
+Running the packaged manifest at the repository root reports `site/evidence.html` as FAILED, because
+the repository copy of that page has been updated since packaging. That is expected: the packaged
+manifest is kept byte-identical to its packaged version so the genesis digest stays valid.
