@@ -20,6 +20,7 @@ version: 1.1.1
 date-released: "2026-10-25"
 license: Apache-2.0
 repository-code: "https://github.com/limisys/boundary-axiom"
+doi: "10.5281/zenodo.23627627"
 keywords:
   - Lean 4
   - formalization
@@ -29,4 +30,5 @@ keywords:
   - Mathlib
 notes: >-
   Code is Apache-2.0; documentation and data are CC BY 4.0. Papers are preprints,
-  not peer-reviewed. A DOI will be added after the Zenodo code archive is created.
+  not peer-reviewed. Archived release v1.1.1 is deposited at
+  https://doi.org/10.5281/zenodo.23627627 (concept DOI: 10.5281/zenodo.23627626).

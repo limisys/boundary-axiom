@@ -142,7 +142,7 @@ machine-checked. Links will be added when the preprints are public.
 - GitHub (canonical): <https://github.com/limisys/boundary-axiom>
 - Gitee (read-only mirror): <https://gitee.com/limisys/boundary-axiom>
 - Citation metadata: `CITATION.cff`
-- Archived release: DOI to be added after the Zenodo code archive.
+- Archived release: [Zenodo v1.1.1](https://doi.org/10.5281/zenodo.23627627) (concept DOI: [10.5281/zenodo.23627626](https://doi.org/10.5281/zenodo.23627626)).
 
 ## Licences
 

@@ -76,7 +76,7 @@ CI 绿是公开复现记录。
 - GitHub（canonical）：<https://github.com/limisys/boundary-axiom>
 - Gitee（只读镜像）：<https://gitee.com/limisys/boundary-axiom>
 - 引用：`CITATION.cff`
-- Zenodo 代码 DOI：归档后补入
+- Zenodo 代码 DOI：[v1.1.1](https://doi.org/10.5281/zenodo.23627627)（概念 DOI：[10.5281/zenodo.23627626](https://doi.org/10.5281/zenodo.23627626)）
 
 ## 许可
 
