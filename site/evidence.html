@@ -5,15 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Evidence ledger</title>
 <meta name="description" content="Counts by scope, hashes, build and gate records, and open items.">
+<link rel="canonical" href="https://limisys.github.io/boundary-axiom/evidence.html">
+<meta name="author" content="Xueqiang Gao">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#0a0c0f">
+<meta property="og:site_name" content="Boundary / Axiom">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
 <meta property="og:title" content="Evidence ledger">
 <meta property="og:description" content="Counts by scope, hashes, build and gate records, and open items.">
-<meta property="og:type" content="article">
-<meta property="og:site_name" content="Boundary / Axiom">
+<meta property="og:url" content="https://limisys.github.io/boundary-axiom/evidence.html">
 <meta property="og:image" content="https://limisys.github.io/boundary-axiom/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Boundary / Axiom — the boundary is the report">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Evidence ledger">
+<meta name="twitter:description" content="Counts by scope, hashes, build and gate records, and open items.">
 <meta name="twitter:image" content="https://limisys.github.io/boundary-axiom/assets/og.png">
+<meta name="twitter:image:alt" content="Boundary / Axiom — the boundary is the report">
 <link rel="stylesheet" href="assets/style.css">
 <script>
 window.MathJax = {
@@ -31,6 +41,51 @@ window.MathJax = {
 };
 </script>
 <script defer src="assets/mathjax/tex-svg-full.js"></script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Person",
+   "@id": "https://limisys.github.io/boundary-axiom/#author",
+   "name": "Xueqiang Gao",
+   "alternateName": "高学强",
+   "identifier": "https://orcid.org/0009-0008-3821-3454",
+   "url": "https://limisys.github.io/",
+   "sameAs": [
+    "https://github.com/limisys",
+    "https://orcid.org/0009-0008-3821-3454"
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://limisys.github.io/boundary-axiom/#website",
+   "url": "https://limisys.github.io/boundary-axiom/",
+   "name": "Boundary / Axiom",
+   "description": "The Boundary Cognition Hypothesis, formalized in Lean 4: boundary–report identity on Moore families.",
+   "inLanguage": "en",
+   "author": {
+    "@id": "https://limisys.github.io/boundary-axiom/#author"
+   }
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://limisys.github.io/boundary-axiom/evidence.html#page",
+   "url": "https://limisys.github.io/boundary-axiom/evidence.html",
+   "name": "Evidence ledger",
+   "description": "Counts by scope, hashes, build and gate records, and open items.",
+   "isPartOf": {
+    "@id": "https://limisys.github.io/boundary-axiom/#website"
+   },
+   "author": {
+    "@id": "https://limisys.github.io/boundary-axiom/#author"
+   },
+   "inLanguage": "en",
+   "image": "https://limisys.github.io/boundary-axiom/assets/og.png"
+  }
+ ]
+}
+</script>
 </head>
 <body>
 <header class="sitebar">
@@ -39,10 +94,8 @@ window.MathJax = {
     <nav>
       <a href="index.html">Entry</a>
       <a href="technical.html">Technical</a>
-      <a href="demo.html">Demo</a>
       <a href="evidence.html">Evidence</a>
       <a href="open-bridge.html">Open bridge</a>
-      <a href="bounty.html">Counterexamples</a>
       <a href="https://github.com/limisys/boundary-axiom">GitHub</a>
     </nav>
   </div>
@@ -51,8 +104,8 @@ window.MathJax = {
 <a class="back" href="index.html">← Index</a>
 <article class="paper">
 <h1>Evidence ledger</h1>
-<p><strong>Release:</strong> <code>boundary-axiom</code> v1.1.0 — published, <code>main@f01cf6f</code>, tag <code>v1.1.0</code><br>
-<strong>Date:</strong> 2026-10-24<br>
+<p><strong>Release:</strong> <code>boundary-axiom</code> v0.1.0 staging<br>
+<strong>Date:</strong> 2026-10-23<br>
 <strong>Toolchain:</strong> Lean 4.33.0 (<code>d8b18978322de05a8f3dba51ef03cf5461676c17</code>), Mathlib 4.33.0</p>
 <p>This ledger separates what was machine-checked from what is design, and from what
 is still open. Do not quote a count without its scope.</p>
@@ -129,12 +182,8 @@ c3eaed0c74e0f704dbf2d2cfa219e4c5ce4eb911bfa923e252f9d7ee43752f6c  report-core/le
 90e9caf1d066ce69eb1c402ec098ede92290b925f8b31c13df0fb2bb14808a57  report-core/lean/ReportIdentityCore.lean
 9513c058d8d2a207e2a2b7c17ebad30193f1fe55c80d349205fb39484440bce8  report-core/lean/ReportIdentity.lean
 </code></pre>
-<p><code>MANIFEST.public.sha256</code> at the repository root is the release manifest (183 entries, frozen for the packaged tree, matching <code>GENESIS.json</code>); if it differs from this table, the manifest is authoritative for the packaged tree.</p>
-<p><strong>Release snapshot and timestamp.</strong> The archived tree <code>boundary-axiom-f01cf6f-v1.1.0.tar.gz</code> (SHA-256 <code>60b1dbdeef5364bbeddbcdcd240aa35acbfe4763e8824c530adfae77ccc1b64b</code>) is anchored to Bitcoin through OpenTimestamps; the <code>.ots</code> proof and checksum are in <code>release/</code>. Verify with <code>ots verify ots/&lt;file&gt;.ots</code> against the snapshot; the Bitcoin attestation is complete (Bitcoin block 972871, 2026-10-24 03:42:03 UTC).</p>
-
-<p><strong>Two manifests.</strong> <code>MANIFEST.public.sha256</code> is frozen for the packaged tree (183 entries, the value bound in <code>GENESIS.json</code>); <code>MANIFEST.attestation.sha256</code> covers the current repository tree (196 entries). Run each in its own directory: the packaged manifest inside the extracted archive, the attestation manifest at the repository root.</p>
-
-<p><strong>Genesis record.</strong> The whole package is fixed by one digest. <code>genesis/GENESIS.json</code> (SHA-256 <code>f6a207eb0eda8fd2c0971f30835afbd5a20436eaf603bb8ad461611d060861ac</code>) binds the package hash <code>60b1dbde&hellip;c1b64b</code>, commit <code>f01cf6f</code>, 184 files and the tree Merkle root <code>161e48a6&hellip;39eaba</code>. It carries two independent timestamps: an RFC&nbsp;3161 token issued by freetsa.org at <strong>2026-10-24 03:48:36 GMT</strong> (serial <code>0x0965B6C4</code>, signature verified against the bundled CA certificate) and two OpenTimestamps Bitcoin anchors (Bitcoin blocks 972873 and 972874, 2026-10-24 04:05:48 and 04:12:06 UTC). Verify with <code>sha256sum -c genesis/GENESIS.sha256</code> and <code>openssl ts -verify -data genesis/GENESIS.json -in genesis/GENESIS.json.tsr -CAfile genesis/tsa-cacert.pem</code>.</p>
+<p><code>SHA256SUMS</code> at the repository root is the release manifest; if it differs from
+this table, <code>SHA256SUMS</code> is authoritative for the packaged tree.</p>
 <h2>4. Gate evidence</h2>
 <p><code>architecture/gate_reference.py</code> is a standard-library finite-state reference.
 The current release adds the R6 wrapper and passes <strong>14/14</strong> protocol checks:</p>

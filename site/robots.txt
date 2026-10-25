@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://limisys.github.io/boundary-axiom/sitemap.xml

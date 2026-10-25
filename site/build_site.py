@@ -6,6 +6,7 @@ No external network: MathJax is vendored under site/assets/mathjax.
 from __future__ import annotations
 
 import html
+import json
 import shutil
 from pathlib import Path
 
@@ -14,6 +15,13 @@ from markdown_it import MarkdownIt
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 DOCS = ROOT / "docs"
+
+SITE = "https://limisys.github.io/boundary-axiom/"
+AUTHOR_NAME = "Xueqiang Gao"
+ORCID = "https://orcid.org/0009-0008-3821-3454"
+REPO = "https://github.com/limisys/boundary-axiom"
+DOI = "https://doi.org/10.5281/zenodo.23627627"
+OG_ALT = "Boundary / Axiom \u2014 the boundary is the report"
 
 NAV = """<header class="sitebar">
   <div class="sitebar-inner">
@@ -60,17 +68,28 @@ PAGE = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{desc}">
+<link rel="canonical" href="{url}">
+<meta name="author" content="Xueqiang Gao">
+<meta name="robots" content="{robots}">
+<meta name="theme-color" content="#0a0c0f">
+<meta property="og:site_name" content="Boundary / Axiom">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
-<meta property="og:type" content="article">
-<meta property="og:site_name" content="Boundary / Axiom">
-<meta property="og:image" content="https://limisys.github.io/boundary-axiom/assets/og.png">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{site}assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{ogalt}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://limisys.github.io/boundary-axiom/assets/og.png">
+<meta name="twitter:title" content="{title}">
+<meta name="twitter:description" content="{desc}">
+<meta name="twitter:image" content="{site}assets/og.png">
+<meta name="twitter:image:alt" content="{ogalt}">
 <link rel="stylesheet" href="assets/style.css">
 {mathjax}
+{jsonld}
 </head>
 <body>
 {nav}
@@ -100,14 +119,75 @@ def render(md_path: Path) -> str:
     return out
 
 
-def paper_page(title: str, desc: str, body: str) -> str:
+def page_url(slug: str) -> str:
+    return SITE if slug in ("", "index.html") else SITE + slug
+
+
+def jsonld(title: str, desc: str, url: str, kind: str = "WebPage") -> str:
+    person = {
+        "@type": "Person",
+        "@id": SITE + "#author",
+        "name": AUTHOR_NAME,
+        "alternateName": "\u9ad8\u5b66\u5f3a",
+        "identifier": ORCID,
+        "url": "https://limisys.github.io/",
+        "sameAs": ["https://github.com/limisys", ORCID],
+    }
+    website = {
+        "@type": "WebSite",
+        "@id": SITE + "#website",
+        "url": SITE,
+        "name": "Boundary / Axiom",
+        "description": "The Boundary Cognition Hypothesis, formalized in Lean 4: "
+                       "boundary\u2013report identity on Moore families.",
+        "inLanguage": "en",
+        "author": {"@id": SITE + "#author"},
+    }
+    page = {
+        "@type": kind,
+        "@id": url + "#page",
+        "url": url,
+        "name": title,
+        "description": desc,
+        "isPartOf": {"@id": SITE + "#website"},
+        "author": {"@id": SITE + "#author"},
+        "inLanguage": "en",
+        "image": SITE + "assets/og.png",
+    }
+    graph = [person, website, page]
+    if kind == "WebPage" and url == SITE:
+        graph.append({
+            "@type": "SoftwareSourceCode",
+            "name": "boundary-axiom",
+            "description": "Lean 4 formalization of boundary\u2013report identity "
+                           "on Moore families, with a finite-state consistency gate.",
+            "codeRepository": REPO,
+            "programmingLanguage": "Lean 4",
+            "version": "1.1.1",
+            "identifier": DOI,
+            "author": {"@id": SITE + "#author"},
+            "isPartOf": {"@id": SITE + "#website"},
+        })
+    data = {"@context": "https://schema.org", "@graph": graph}
+    return ('<script type="application/ld+json">\n'
+            + json.dumps(data, ensure_ascii=False, indent=1)
+            + "\n</script>")
+
+
+def paper_page(title: str, desc: str, body: str, slug: str) -> str:
     body = (
         '<a class="back" href="index.html">← Index</a>\n'
         '<article class="paper">\n' + body + "\n</article>"
     )
+    url = page_url(slug)
     return PAGE.format(
         title=html.escape(title),
         desc=html.escape(desc, quote=True),
+        url=url,
+        robots="index,follow,max-image-preview:large",
+        site=SITE,
+        ogalt=OG_ALT,
+        jsonld=jsonld(title, desc, url),
         mathjax=MATHJAX,
         nav=NAV,
         body=body,
@@ -210,9 +290,17 @@ LANDING = """<section class="hero">
 
 
 def build_landing() -> str:
+    title = "The Boundary Is the Report"
+    desc = ("A machine-checked Lean 4 core for boundary–report identity on Moore "
+            "families, with a finite-state consistency gate.")
     return PAGE.format(
-        title="The Boundary Is the Report",
-        desc="A machine-checked Lean 4 core for boundary–report identity on Moore families, with a finite-state consistency gate.",
+        title=title,
+        desc=desc,
+        url=SITE,
+        robots="index,follow,max-image-preview:large",
+        site=SITE,
+        ogalt=OG_ALT,
+        jsonld=jsonld(title, desc, SITE),
         mathjax="",
         nav=NAV,
         body=LANDING,
@@ -227,9 +315,15 @@ def build_404() -> str:
   <p class="lede">The boundary of this site is smaller than you thought.</p>
   <div class="actions"><a class="button" href="index.html">Return to index</a></div>
 </section>"""
+    url = SITE + "404.html"
     return PAGE.format(
         title="404 — The Boundary Is the Report",
         desc="Page not found.",
+        url=url,
+        robots="noindex,follow",
+        site=SITE,
+        ogalt=OG_ALT,
+        jsonld=jsonld("404 — The Boundary Is the Report", "Page not found.", url),
         mathjax="",
         nav=NAV,
         body=body,
@@ -261,13 +355,16 @@ def main() -> int:
         ),
     }
     for name, (title, desc, path) in pages.items():
-        (HERE / name).write_text(paper_page(title, desc, render(path)), encoding="utf-8")
+        (HERE / name).write_text(paper_page(title, desc, render(path), name), encoding="utf-8")
         print("OK", name)
     (HERE / "index.html").write_text(build_landing(), encoding="utf-8")
     print("OK index.html")
     (HERE / "404.html").write_text(build_404(), encoding="utf-8")
     print("OK 404.html")
-    (HERE / "robots.txt").write_text("User-agent: *\nAllow: /\n", encoding="utf-8")
+    (HERE / "robots.txt").write_text(
+        "User-agent: *\nAllow: /\n\nSitemap: " + SITE + "sitemap.xml\n",
+        encoding="utf-8",
+    )
     (HERE / "sitemap.xml").write_text(
         """<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -276,6 +373,8 @@ def main() -> int:
   <url><loc>https://limisys.github.io/boundary-axiom/technical.html</loc></url>
   <url><loc>https://limisys.github.io/boundary-axiom/evidence.html</loc></url>
   <url><loc>https://limisys.github.io/boundary-axiom/open-bridge.html</loc></url>
+  <url><loc>https://limisys.github.io/boundary-axiom/demo.html</loc></url>
+  <url><loc>https://limisys.github.io/boundary-axiom/bounty.html</loc></url>
 </urlset>
 """,
         encoding="utf-8",
